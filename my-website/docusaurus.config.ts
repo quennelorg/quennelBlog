@@ -88,10 +88,14 @@ const config: Config = {
           label: 'Tutorial',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/todo', label: 'Todo', position: 'left'},
         {
           href: 'https://github.com/Quennel-coder',
-          label: 'GitHub',
+          // label: 'GitHub',
           position: 'right',
+          "aria-label": "GitHub repository",
+          className: 'navbar__icon navbar__github',
+          html: '<i class="fa fa-github"></i>',
         },
         {
           type: 'localeDropdown',
