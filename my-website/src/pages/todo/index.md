@@ -2,6 +2,7 @@
 
 
 ## 每日TODO List
+[TODO](/todo/everyDay)
 - [ ] **一篇博客**
 
 ## 网站内容更新

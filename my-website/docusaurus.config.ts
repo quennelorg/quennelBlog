@@ -163,7 +163,7 @@ const config: Config = {
 	} satisfies Preset.ThemeConfig,
 
 	customFields: {
-		greeting: [
+		greetings: [
 			'The shortest way to do many things is to only one thing at a time ',
 			'Be cheerful and hopeful',
 			'Treat yourself well',
@@ -172,6 +172,7 @@ const config: Config = {
 			'The first step is as good as half over',
 			'Time waits for no one. Treasure every moment you have',
 		],
+		todoTitles: ['完不成任务，就别想睡觉', '不能偷懒，不能偷懒'],
 	},
 };
 
