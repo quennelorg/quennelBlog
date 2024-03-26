@@ -6,6 +6,7 @@
 - [ ] **一篇博客**
 
 ## 网站内容更新
+- [ ] **增加每日TODO by using localStorage**
 - [ ] **网站github评论区 [giscus](https://giscus.app/zh-CN)**
 - [ ] **将之前的静态网页demo组合到这个网站**
 - [ ] **云内容学习**

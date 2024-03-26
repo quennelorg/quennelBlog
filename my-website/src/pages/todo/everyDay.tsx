@@ -6,7 +6,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from '@site/src/pages/index.module.css';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import getRandomTextFromData from '@site/src/util/getRandomTextFromData';
-import * as _ from 'lodash';
 import { TODOLIST } from '@site/src/model/TODOLIST';
 
 export default function EveryDayTodoPage(): JSX.Element {
@@ -26,10 +25,10 @@ function Header() {
 	const todoTitles: [] = siteConfig.customFields.todoTitles as [];
 	const storeValue = () => {
 		const text = '123';
-		_.set(TODOLIST, 'customFields.todoTitles', text);
+		TODOLIST.push(text);
 	};
 	const getValue = () => {
-		console.log(_.get(TODOLIST, 'customFields.todoTitles'));
+		console.log(TODOLIST);
 	};
 	return (
 		<header className={clsx('hero hero--primary', styles.heroBanner)}>
