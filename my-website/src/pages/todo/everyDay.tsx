@@ -7,6 +7,7 @@ import styles from '@site/src/pages/index.module.css';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import getRandomTextFromData from '@site/src/util/getRandomTextFromData';
 import { TODOLIST } from '@site/src/model/TODOLIST';
+import TodoFeature from '@site/src/components/TodoFeature/main';
 
 export default function EveryDayTodoPage(): JSX.Element {
 	const { siteConfig } = useDocusaurusContext();
@@ -14,7 +15,7 @@ export default function EveryDayTodoPage(): JSX.Element {
 		<Layout title={`DO TO ${siteConfig.title}`}>
 			<Header />
 			<main>
-				<HomepageFeatures />
+				<TodoFeature />
 			</main>
 		</Layout>
 	);
@@ -30,6 +31,8 @@ function Header() {
 	const getValue = () => {
 		console.log(TODOLIST);
 	};
+	const inputValue: string = '';
+	const addTodo = () => {};
 	return (
 		<header className={clsx('hero hero--primary', styles.heroBanner)}>
 			<div className="container">
@@ -43,6 +46,7 @@ function Header() {
 				<a className="button button--secondary button--lg" onClick={getValue}>
 					get value
 				</a>
+				<input type="text" name="name" value={inputValue} onChange={addTodo} />
 			</div>
 		</header>
 	);
