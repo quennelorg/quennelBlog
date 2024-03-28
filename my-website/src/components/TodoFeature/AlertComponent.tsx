@@ -1,23 +1,17 @@
-import React, { useEffect } from 'react';
-import Admonition from '@theme/Admonition';
-import { AlertType } from '@site/src/components/TodoFeature/TodoModel';
-import { FcHighPriority, FcSms } from 'react-icons/fc';
-const AlertComponent = ({ alertContent, removeAlert, list }) => {
-	useEffect(() => {
-		const timeout = setTimeout(() => {
-			removeAlert();
-		}, 3000);
-		return () => clearTimeout(timeout);
-	}, [list]);
+import React from 'react';
+import { AlertCategoryMapping, AlertType } from '@site/src/components/TodoFeature/TodoModel';
+import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+const AlertComponent = ({ alertContent, removeAlert }) => {
 	const type: AlertType = alertContent.type;
-	const isError = type === AlertType.error;
-	const title = isError ? '这是一个错误' : '这是一个提示';
-	const admoitionType = isError ? 'danger' : 'tip';
-	const icon = isError ? <FcHighPriority /> : <FcSms />;
 	return (
-		<Admonition type={admoitionType} icon={icon} title={title}>
-			{type.valueOf()}
-		</Admonition>
+		<Snackbar open={alertContent.showAlert} autoHideDuration={1000} onClose={removeAlert} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+			{type && (
+				<Alert onClose={removeAlert} severity={AlertCategoryMapping[type]} variant="filled" sx={{ width: '100%' }}>
+					{type.valueOf()}
+				</Alert>
+			)}
+		</Snackbar>
 	);
 };
 

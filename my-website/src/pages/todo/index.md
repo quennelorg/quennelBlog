@@ -1,14 +1,18 @@
 # This is a Todo list for everything
 
 
-## 每日TODO List
+## 每日TODO TaskList
 [TODO](/todo/everyDay)
 ### **博客主题**
   - [ ] localStorage
   - [ ] useEffect
+  - [ ] useState
 
 ## 网站内容更新
+- [x] **完成增删查改**
+- [ ] **重构ui，整合到/todo**
 - [ ] **增加每日TODO by using localStorage**
+- [ ] **增加任务优先级**
 - [ ] **网站github评论区 [giscus](https://giscus.app/zh-CN)**
 - [ ] **将之前的静态网页demo组合到这个网站**
 - [ ] **云内容学习**

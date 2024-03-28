@@ -12,7 +12,7 @@ import TodoFeature from '@site/src/components/TodoFeature/main';
 export default function EveryDayTodoPage(): JSX.Element {
 	const { siteConfig } = useDocusaurusContext();
 	return (
-		<Layout title={`DO TO ${siteConfig.title}`}>
+		<Layout title={`Go! ${siteConfig.title}`}>
 			<Header />
 			<main>
 				<TodoFeature />
@@ -40,9 +40,9 @@ function Header() {
 					<h3>{getRandomTextFromData(todoTitles)}</h3>
 					<h4></h4>
 				</Admonition>
-				<a className="button button--secondary button--lg" onClick={storeValue}>
+				<button className="button button--secondary button--lg" onClick={storeValue}>
 					store value
-				</a>
+				</button>
 				<a className="button button--secondary button--lg" onClick={getValue}>
 					get value
 				</a>
