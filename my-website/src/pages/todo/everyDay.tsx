@@ -4,7 +4,6 @@ import Layout from '@theme/Layout';
 import Admonition from '@theme/Admonition';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from '@site/src/pages/index.module.css';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import getRandomTextFromData from '@site/src/util/getRandomTextFromData';
 import { TODOLIST } from '@site/src/model/TODOLIST';
 import TodoFeature from '@site/src/components/TodoFeature/main';

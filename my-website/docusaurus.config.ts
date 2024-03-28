@@ -90,7 +90,7 @@ const config: Config = {
 					label: 'Tutorial',
 				},
 				{ to: '/blog', label: 'Blog', position: 'left' },
-				{ to: '/todo', label: 'Todo', position: 'left' },
+				{ to: '/todo/home', label: 'Todo', position: 'left' },
 				{
 					href: 'https://github.com/Quennel-coder',
 					// label: 'GitHub',
