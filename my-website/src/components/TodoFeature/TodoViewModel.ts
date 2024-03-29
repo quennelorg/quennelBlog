@@ -17,21 +17,19 @@ const TodoViewModel = () => {
 	};
 };
 
-export const getNewlist = (list: Array<Task>, task: Task): Array<Task> => {
+export const getNewlist = (list: Task[], task: Task): Task[] => {
 	const newList = [...list, task];
-	const finishedTasks = newList.filter((task) => task.isOver);
-	const unFinishedTasks = _.orderBy(
-		newList.filter((task) => !task.isOver),
-		['id'],
-		['asc'],
-	);
-	const normalTasks = unFinishedTasks.filter((task) => task.type === TaskType.normal);
-	const importantTasks = unFinishedTasks.filter((task) => task.type === TaskType.important);
-	const warningTasks = unFinishedTasks.filter((task) => task.type === TaskType.warning);
+	const [finishedTasks, unFinishedTasks] = _.partition(newList, 'isOver');
+	const sortedUnFinishedTasks = _.orderBy(unFinishedTasks, 'id', 'asc');
+	const groupedUnFinishedTasks = _.groupBy(sortedUnFinishedTasks, 'type');
 
-	return [...warningTasks, ...importantTasks, ...normalTasks, ...finishedTasks];
+	return [
+		...(groupedUnFinishedTasks[TaskType.warning] || []),
+		...(groupedUnFinishedTasks[TaskType.important] || []),
+		...(groupedUnFinishedTasks[TaskType.normal] || []),
+		...finishedTasks,
+	];
 };
-
 export const getTimeId = (): string => {
 	return new Date().getTime().toString();
 };
