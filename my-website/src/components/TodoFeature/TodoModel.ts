@@ -10,10 +10,17 @@ export interface Alert {
 	type?: AlertType;
 }
 
+export enum OperationContent {
+	create = 0,
+	update = 1,
+	delete = 2,
+	removeAll = 3,
+}
+
 export enum TaskType {
-	normal = 0,
-	important = 1,
-	warning = 2,
+	normal = '普通',
+	important = '重要',
+	warning = '第一个完成这个',
 }
 
 export enum AlertType {

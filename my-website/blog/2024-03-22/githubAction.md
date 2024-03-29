@@ -37,5 +37,5 @@ tags: [github, deploy]
 
 参考答案：[actions/upload-pages-artifact fails at actions/upload-artifact with "No files were found with the provided path"](https://stackoverflow.com/questions/73310631/actions-upload-pages-artifact-fails-at-actions-upload-artifact-with-no-files-we)
 ## 后续计划
-- 这次部署的是docusaurus静态网页，计划之后研究next.js，hexo，Jekyll等
+- 这次部署的是docusaurus静态网页，计划之后研究next.js，hexo，Jekyll, gatsby等
 - 动态网页项目，react，vue，uniapp

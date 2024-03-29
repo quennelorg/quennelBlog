@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as _ from 'lodash';
 import { Alert, AlertType, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
 import AlertComponent from '@site/src/components/TodoFeature/AlertComponent';
-import { Button, Container, TextField } from '@mui/material';
+import { Button, Container, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import FolderDeleteOutlinedIcon from '@mui/icons-material/FolderDeleteOutlined';
@@ -10,6 +10,7 @@ import TaskList from '@site/src/components/TodoFeature/TaskList';
 
 const TodoFeature = () => {
 	const [taskName, setTaskName] = useState('');
+	const [taskType, setTaskType] = useState<TaskType>(TaskType.normal);
 	const [list, setList] = useState<Array<Task>>([]);
 	const [isEditing, setIsEditing] = useState(false);
 	const [editId, setEditId] = useState(null);
@@ -77,11 +78,15 @@ const TodoFeature = () => {
 	const onChangeInputValue = (e) => {
 		setTaskName(e.target.value);
 	};
+	const onChangeSelectValue = (e) => {
+		setTaskType(e.target.value);
+	};
 	return (
 		<Container component="main" sx={{ textAlign: 'center', marginTop: 10 }}>
 			<AlertComponent alertContent={alert} removeAlert={removeAlert} />
 			<TodoInput onChangeInputValue={onChangeInputValue} handleSubmit={handleSubmit} taskName={taskName} />
 			<EditingButton isEditing={isEditing} taskName={taskName} handleSubmit={handleSubmit} />
+			{!_.isEmpty(taskName) && <PrioritySelect taskType={taskType} handleChange={onChangeSelectValue} />}
 			<ClearListButton list={list} clearList={clearList} />
 			<TaskList tasks={list} deleteTask={deleteTask} finishTask={finishTask} editTask={editTask} />
 		</Container>
@@ -105,18 +110,39 @@ const TodoInput = ({ onChangeInputValue, handleSubmit, taskName }) => {
 	);
 };
 
+const PrioritySelect = ({ taskType, handleChange }) => {
+	return (
+		<FormControl sx={{ m: 1, minWidth: 120 }}>
+			<InputLabel id="demo-simple-select-autowidth-label">优先级</InputLabel>
+			<Select
+				labelId="demo-simple-select-autowidth-label"
+				id="demo-simple-select-autowidth"
+				value={taskType}
+				onChange={handleChange}
+				autoWidth
+				label="Priority"
+			>
+				<MenuItem value={TaskType.normal}>{TaskType.normal.valueOf()}</MenuItem>
+				<MenuItem value={TaskType.important}>{TaskType.important.valueOf()}</MenuItem>
+				<MenuItem value={TaskType.warning}>{TaskType.warning.valueOf()}</MenuItem>
+			</Select>
+		</FormControl>
+	);
+};
 const ClearListButton = ({ list, clearList }) => {
 	return (
-		<Button
-			disabled={_.some(list, ['isOver', false]) || list.length <= 0}
-			variant="outlined"
-			color="primary"
-			size="large"
-			endIcon={<FolderDeleteOutlinedIcon />}
-			onClick={clearList}
-		>
-			只有都完成了才能解放
-		</Button>
+		list.length > 0 && (
+			<Button
+				disabled={_.some(list, ['isOver', false]) || list.length <= 0}
+				variant="outlined"
+				color="primary"
+				size="large"
+				endIcon={<FolderDeleteOutlinedIcon />}
+				onClick={clearList}
+			>
+				只有都完成了才能解放
+			</Button>
+		)
 	);
 };
 

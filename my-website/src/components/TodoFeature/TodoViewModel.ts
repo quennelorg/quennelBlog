@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, Task } from '@site/src/components/TodoFeature/TodoModel';
+import { Alert, OperationContent, Task } from '@site/src/components/TodoFeature/TodoModel';
 
 const TodoViewModel = () => {
 	const [taskName, setTaskName] = useState('');
@@ -14,6 +14,12 @@ const TodoViewModel = () => {
 			setTaskName('');
 		}
 	};
+};
+export const setList = (list: Array<Task>, operation: OperationContent): Array<Task> => {
+	const newList = [];
+	if (operation === OperationContent.create) {
+	}
+	return newList;
 };
 
 export default TodoViewModel;
