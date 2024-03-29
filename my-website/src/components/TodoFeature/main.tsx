@@ -69,15 +69,13 @@ const TodoFeature = () => {
 			return;
 		}
 		if (operationContent === OperationContent.finish) {
-			let isFinish = false;
+			const task = list.find((task) => task.id === id);
+			const isFinish = task.isOver;
 			setList(
-				_.map(list, (task) => {
-					if (task.id === id) {
-						isFinish = !task.isOver;
-						return { ...task, isOver: !task.isOver };
-					}
-					return task;
-				}),
+				getNewlist(
+					list.filter((task) => task.id !== id),
+					{ ...task, isOver: !isFinish },
+				),
 			);
 			if (isFinish) {
 				showAlert({ showAlert: true, type: AlertType.finishSuccess });

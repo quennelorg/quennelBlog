@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Alert, OperationContent, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
+import { Alert, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
 import * as _ from 'lodash';
+
 const TodoViewModel = () => {
 	const [taskName, setTaskName] = useState('');
 	const [list, setList] = useState<Array<Task>>([]);
@@ -17,7 +18,18 @@ const TodoViewModel = () => {
 };
 
 export const getNewlist = (list: Array<Task>, task: Task): Array<Task> => {
-	return [...list, task];
+	const newList = [...list, task];
+	const finishedTasks = newList.filter((task) => task.isOver);
+	const unFinishedTasks = _.orderBy(
+		newList.filter((task) => !task.isOver),
+		['id'],
+		['asc'],
+	);
+	const normalTasks = unFinishedTasks.filter((task) => task.type === TaskType.normal);
+	const importantTasks = unFinishedTasks.filter((task) => task.type === TaskType.important);
+	const warningTasks = unFinishedTasks.filter((task) => task.type === TaskType.warning);
+
+	return [...warningTasks, ...importantTasks, ...normalTasks, ...finishedTasks];
 };
 export const sortList = (list: Array<Task>): Array<Task> => {
 	return _.orderBy(
