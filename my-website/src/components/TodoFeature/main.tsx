@@ -38,6 +38,7 @@ const TodoFeature = () => {
 		const task = list.find((task) => task.id === id);
 		setEditId(task.id);
 		setTaskName(task.name);
+		setTaskType(task.type);
 		setList(newList);
 		setIsEditing(true);
 	};
