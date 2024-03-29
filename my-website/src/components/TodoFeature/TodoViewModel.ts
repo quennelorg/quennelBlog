@@ -31,6 +31,10 @@ export const getNewlist = (list: Array<Task>, task: Task): Array<Task> => {
 
 	return [...warningTasks, ...importantTasks, ...normalTasks, ...finishedTasks];
 };
+
+export const getTimeId = (): string => {
+	return new Date().getTime().toString();
+};
 export const sortList = (list: Array<Task>): Array<Task> => {
 	return _.orderBy(
 		list,

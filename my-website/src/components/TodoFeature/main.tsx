@@ -7,7 +7,7 @@ import SendIcon from '@mui/icons-material/Send';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import FolderDeleteOutlinedIcon from '@mui/icons-material/FolderDeleteOutlined';
 import TaskList from '@site/src/components/TodoFeature/TaskList';
-import { getNewlist } from '@site/src/components/TodoFeature/TodoViewModel';
+import { getNewlist, getTimeId } from '@site/src/components/TodoFeature/TodoViewModel';
 
 const TodoFeature = () => {
 	const [taskName, setTaskName] = useState('');
@@ -31,12 +31,12 @@ const TodoFeature = () => {
 			showAlert({ showAlert: true, type: AlertType.sameNameError }, true);
 			return;
 		}
-		modifyTask(new Date().getTime().toString(), OperationContent.create);
+		modifyTask(getTimeId(), OperationContent.create);
 	};
 	const editTask = (id) => {
 		const newList = list.filter((task) => task.id !== id);
 		const task = list.find((task) => task.id === id);
-		setEditId(task.id);
+		setEditId(getTimeId());
 		setTaskName(task.name);
 		setTaskType(task.type);
 		setList(newList);

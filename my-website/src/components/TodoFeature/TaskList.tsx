@@ -6,7 +6,7 @@ import { TaskPriorityColorMapping } from '@site/src/components/TodoFeature/TodoM
 import * as _ from 'lodash';
 const TaskList = ({ tasks, deleteTask, editTask, finishTask }) => {
 	return (
-		<List sx={{ width: '100%', maxWidth: 560, bgcolor: 'grey' }}>
+		<List sx={{ width: '100%', maxWidth: 560, bgcolor: 'text.disabled' }}>
 			{tasks.map((task) => {
 				return (
 					<TaskListItem
