@@ -8,8 +8,17 @@ import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import FolderDeleteOutlinedIcon from '@mui/icons-material/FolderDeleteOutlined';
 import TaskList from '@site/src/components/TodoFeature/TaskList';
 import { getNewlist, getTimeId } from '@site/src/components/TodoFeature/TodoViewModel';
+import { useColorMode } from '@docusaurus/theme-common';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const TodoFeature = () => {
+	const { colorMode, setColorMode } = useColorMode();
+	const isDark: boolean = colorMode === 'dark';
+	const darkTheme = createTheme({
+		palette: {
+			mode: isDark ? 'dark' : 'light',
+		},
+	});
 	const [taskName, setTaskName] = useState('');
 	const [taskType, setTaskType] = useState<TaskType>(TaskType.normal);
 	const [list, setList] = useState<Array<Task>>([]);
@@ -99,33 +108,35 @@ const TodoFeature = () => {
 		setTaskType(e.target.value);
 	};
 	return (
-		<Container component="main" maxWidth="sm" sx={{ marginTop: 10 }}>
-			<AlertComponent alertContent={alert} removeAlert={removeAlert} />
-			<Box>
-				<Grid container spacing={1}>
-					<Grid item xs={8}>
-						<TodoInput
-							onChangeInputValue={onChangeInputValue}
-							handleSubmit={handleSubmit}
-							taskName={taskName}
-							label={isEditing ? '别想通过修改来快速完成任务' : '今天准备做点什么'}
-						/>
+		<ThemeProvider theme={darkTheme}>
+			<Container component="main" maxWidth="sm" sx={{ marginTop: 5 }}>
+				<AlertComponent alertContent={alert} removeAlert={removeAlert} />
+				<Box>
+					<Grid container spacing={1}>
+						<Grid item xs={8}>
+							<TodoInput
+								onChangeInputValue={onChangeInputValue}
+								handleSubmit={handleSubmit}
+								taskName={taskName}
+								label={isEditing ? '别想通过修改来快速完成任务' : '今天准备做点什么'}
+							/>
+						</Grid>
+						<Grid item xs={4}>
+							<EditingButton isEditing={isEditing} taskName={taskName} handleSubmit={handleSubmit} />
+						</Grid>
+						<Grid item xs={8}>
+							{!_.isEmpty(taskName) && <PrioritySelect taskType={taskType} handleChange={onChangeSelectValue} />}
+						</Grid>
+						<Grid item xs={4}>
+							{list.length > 0 && <ClearListButton list={list} clearList={clearList} />}
+						</Grid>
+						<Grid item xs={12}>
+							{list.length > 0 && <TaskList tasks={list} deleteTask={deleteTask} finishTask={finishTask} editTask={editTask} />}
+						</Grid>
 					</Grid>
-					<Grid item xs={4}>
-						<EditingButton isEditing={isEditing} taskName={taskName} handleSubmit={handleSubmit} />
-					</Grid>
-					<Grid item xs={8}>
-						{!_.isEmpty(taskName) && <PrioritySelect taskType={taskType} handleChange={onChangeSelectValue} />}
-					</Grid>
-					<Grid item xs={4}>
-						{list.length > 0 && <ClearListButton list={list} clearList={clearList} />}
-					</Grid>
-					<Grid item xs={12}>
-						{list.length > 0 && <TaskList tasks={list} deleteTask={deleteTask} finishTask={finishTask} editTask={editTask} />}
-					</Grid>
-				</Grid>
-			</Box>
-		</Container>
+				</Box>
+			</Container>
+		</ThemeProvider>
 	);
 };
 
