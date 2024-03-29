@@ -78,7 +78,7 @@ const TodoFeature = () => {
 					{ ...task, isOver: !isFinish },
 				),
 			);
-			if (isFinish) {
+			if (!isFinish) {
 				showAlert({ showAlert: true, type: AlertType.finishSuccess });
 			}
 		}
@@ -98,7 +98,6 @@ const TodoFeature = () => {
 	const onChangeSelectValue = (e) => {
 		setTaskType(e.target.value);
 	};
-	const isEmptyTaskName = _.isEmpty(taskName);
 	return (
 		<Container component="main" maxWidth="sm" sx={{ marginTop: 10 }}>
 			<AlertComponent alertContent={alert} removeAlert={removeAlert} />
@@ -116,13 +115,13 @@ const TodoFeature = () => {
 						<EditingButton isEditing={isEditing} taskName={taskName} handleSubmit={handleSubmit} />
 					</Grid>
 					<Grid item xs={8}>
-						{!isEmptyTaskName && <PrioritySelect taskType={taskType} handleChange={onChangeSelectValue} />}
+						{!_.isEmpty(taskName) && <PrioritySelect taskType={taskType} handleChange={onChangeSelectValue} />}
 					</Grid>
 					<Grid item xs={4}>
 						{list.length > 0 && <ClearListButton list={list} clearList={clearList} />}
 					</Grid>
 					<Grid item xs={12}>
-						<TaskList tasks={list} deleteTask={deleteTask} finishTask={finishTask} editTask={editTask} />
+						{list.length > 0 && <TaskList tasks={list} deleteTask={deleteTask} finishTask={finishTask} editTask={editTask} />}
 					</Grid>
 				</Grid>
 			</Box>
@@ -194,7 +193,7 @@ const ClearListButton = ({ list, clearList }) => {
 			endIcon={<FolderDeleteOutlinedIcon />}
 			onClick={clearList}
 		>
-			{unFinishedListLength > 0 ? `你还有${unFinishedListLength}个任务没有完成` : '恭喜你，你已经完成所有任务！点我'}
+			{unFinishedListLength > 0 ? `你还有${unFinishedListLength}个任务没有完成` : '你已经完成所有任务！点我!'}
 		</Button>
 	);
 };
