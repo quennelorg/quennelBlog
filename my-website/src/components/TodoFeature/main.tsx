@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as _ from 'lodash';
 import { Alert, AlertType, OperationContent, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
 import AlertComponent from '@site/src/components/TodoFeature/AlertComponent';
-import { Button, Container, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import FolderDeleteOutlinedIcon from '@mui/icons-material/FolderDeleteOutlined';
@@ -98,19 +98,34 @@ const TodoFeature = () => {
 	const onChangeSelectValue = (e) => {
 		setTaskType(e.target.value);
 	};
+	const isEmptyTaskName = _.isEmpty(taskName);
 	return (
-		<Container component="main" sx={{ textAlign: 'center', marginTop: 10 }}>
+		<Container component="main" maxWidth="sm" sx={{ marginTop: 10 }}>
 			<AlertComponent alertContent={alert} removeAlert={removeAlert} />
-			<TodoInput
-				onChangeInputValue={onChangeInputValue}
-				handleSubmit={handleSubmit}
-				taskName={taskName}
-				label={isEditing ? '别想通过修改来快速完成任务' : '今天准备做点什么'}
-			/>
-			<EditingButton isEditing={isEditing} taskName={taskName} handleSubmit={handleSubmit} />
-			{!_.isEmpty(taskName) && <PrioritySelect taskType={taskType} handleChange={onChangeSelectValue} />}
-			<ClearListButton list={list} clearList={clearList} />
-			<TaskList tasks={list} deleteTask={deleteTask} finishTask={finishTask} editTask={editTask} />
+			<Box>
+				<Grid container spacing={1}>
+					<Grid item xs={8}>
+						<TodoInput
+							onChangeInputValue={onChangeInputValue}
+							handleSubmit={handleSubmit}
+							taskName={taskName}
+							label={isEditing ? '别想通过修改来快速完成任务' : '今天准备做点什么'}
+						/>
+					</Grid>
+					<Grid item xs={4}>
+						<EditingButton isEditing={isEditing} taskName={taskName} handleSubmit={handleSubmit} />
+					</Grid>
+					<Grid item xs={8}>
+						{!isEmptyTaskName && <PrioritySelect taskType={taskType} handleChange={onChangeSelectValue} />}
+					</Grid>
+					<Grid item xs={4}>
+						{list.length > 0 && <ClearListButton list={list} clearList={clearList} />}
+					</Grid>
+					<Grid item xs={12}>
+						<TaskList tasks={list} deleteTask={deleteTask} finishTask={finishTask} editTask={editTask} />
+					</Grid>
+				</Grid>
+			</Box>
 		</Container>
 	);
 };
@@ -127,14 +142,30 @@ const TodoInput = ({ onChangeInputValue, handleSubmit, taskName, label }) => {
 				}
 			}}
 			value={taskName}
-			sx={{ width: '70%', marginBottom: 10 }}
+			sx={{ width: '100%' }}
 		/>
+	);
+};
+
+const EditingButton = ({ handleSubmit, isEditing, taskName }) => {
+	return (
+		<Button
+			size="large"
+			variant={isEditing ? 'outlined' : 'contained'}
+			color="primary"
+			onClick={handleSubmit}
+			sx={{ mt: 1 }}
+			disabled={!taskName}
+			endIcon={isEditing ? <SendOutlinedIcon /> : <SendIcon />}
+		>
+			{isEditing ? 'Edit Task' : 'Add Task'}
+		</Button>
 	);
 };
 
 const PrioritySelect = ({ taskType, handleChange }) => {
 	return (
-		<FormControl sx={{ m: 1, minWidth: 120 }}>
+		<FormControl sx={{ width: '100%' }}>
 			<InputLabel id="demo-simple-select-autowidth-label">优先级</InputLabel>
 			<Select
 				labelId="demo-simple-select-autowidth-label"
@@ -153,33 +184,16 @@ const PrioritySelect = ({ taskType, handleChange }) => {
 };
 const ClearListButton = ({ list, clearList }) => {
 	return (
-		list.length > 0 && (
-			<Button
-				disabled={_.some(list, ['isOver', false]) || list.length <= 0}
-				variant="outlined"
-				color="primary"
-				size="large"
-				endIcon={<FolderDeleteOutlinedIcon />}
-				onClick={clearList}
-			>
-				只有都完成了才能解放
-			</Button>
-		)
-	);
-};
-
-const EditingButton = ({ handleSubmit, isEditing, taskName }) => {
-	return (
 		<Button
-			size="large"
-			variant={isEditing ? 'outlined' : 'contained'}
+			disabled={_.some(list, ['isOver', false]) || list.length <= 0}
+			variant="outlined"
 			color="primary"
-			onClick={handleSubmit}
-			sx={{ height: 55, marginBottom: 30 }}
-			disabled={!taskName}
-			endIcon={isEditing ? <SendOutlinedIcon /> : <SendIcon />}
+			size="large"
+			sx={{ mt: 1 }}
+			endIcon={<FolderDeleteOutlinedIcon />}
+			onClick={clearList}
 		>
-			{isEditing ? 'Edit Task' : 'Add Task'}
+			解放
 		</Button>
 	);
 };
