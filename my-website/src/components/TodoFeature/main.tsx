@@ -154,7 +154,7 @@ const EditingButton = ({ handleSubmit, isEditing, taskName }) => {
 			variant={isEditing ? 'outlined' : 'contained'}
 			color="primary"
 			onClick={handleSubmit}
-			sx={{ mt: 1 }}
+			sx={{ height: 56, width: '100%' }}
 			disabled={!taskName}
 			endIcon={isEditing ? <SendOutlinedIcon /> : <SendIcon />}
 		>
@@ -183,17 +183,18 @@ const PrioritySelect = ({ taskType, handleChange }) => {
 	);
 };
 const ClearListButton = ({ list, clearList }) => {
+	const unFinishedListLength = list.filter((task) => !task.isOver).length;
 	return (
 		<Button
-			disabled={_.some(list, ['isOver', false]) || list.length <= 0}
+			disabled={unFinishedListLength > 0}
 			variant="outlined"
-			color="primary"
+			color="success"
 			size="large"
-			sx={{ mt: 1 }}
+			sx={{ height: 56 }}
 			endIcon={<FolderDeleteOutlinedIcon />}
 			onClick={clearList}
 		>
-			解放
+			{unFinishedListLength > 0 ? `你还有${unFinishedListLength}个任务没有完成` : '恭喜你，你已经完成所有任务！点我'}
 		</Button>
 	);
 };
