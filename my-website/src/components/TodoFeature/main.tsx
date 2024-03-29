@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import * as _ from 'lodash';
-import { Alert, AlertType, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
+import { Alert, AlertType, OperationContent, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
 import AlertComponent from '@site/src/components/TodoFeature/AlertComponent';
 import { Button, Container, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import FolderDeleteOutlinedIcon from '@mui/icons-material/FolderDeleteOutlined';
 import TaskList from '@site/src/components/TodoFeature/TaskList';
+import { getNewlist } from '@site/src/components/TodoFeature/TodoViewModel';
 
 const TodoFeature = () => {
 	const [taskName, setTaskName] = useState('');
@@ -22,17 +23,66 @@ const TodoFeature = () => {
 			return;
 		}
 		if (isEditing) {
-			setList([...list, { id: editId, name: taskName, type: TaskType.normal, isOver: false }]);
+			modifyTask(editId, OperationContent.update);
 			setIsEditing(false);
-			showAlert({ showAlert: true, type: AlertType.updateSuccess }, true);
 			return;
 		}
 		if (_.some(list, ['name', taskName])) {
 			showAlert({ showAlert: true, type: AlertType.sameNameError }, true);
 			return;
 		}
-		setList([...list, { id: new Date().getTime().toString(), name: taskName, type: TaskType.normal, isOver: false }]);
-		showAlert({ showAlert: true, type: AlertType.createSuccess }, true);
+		modifyTask(new Date().getTime().toString(), OperationContent.create);
+	};
+	const editTask = (id) => {
+		const newList = list.filter((task) => task.id !== id);
+		const task = list.find((task) => task.id === id);
+		setEditId(task.id);
+		setTaskName(task.name);
+		setList(newList);
+		setIsEditing(true);
+	};
+	const finishTask = (id) => {
+		modifyTask(id, OperationContent.finish);
+	};
+	const deleteTask = (id) => {
+		modifyTask(id, OperationContent.delete);
+	};
+	const clearList = () => {
+		modifyTask('', OperationContent.removeAll);
+	};
+
+	const modifyTask = (id: string, operationContent: OperationContent) => {
+		if ([OperationContent.create, OperationContent.update].includes(operationContent)) {
+			const task = { id: id, name: taskName, type: taskType, isOver: false };
+			setList(getNewlist(list, task));
+			showAlert({ showAlert: true, type: operationContent === OperationContent.create ? AlertType.createSuccess : AlertType.updateSuccess }, true);
+			return;
+		}
+		if (operationContent === OperationContent.delete) {
+			setList(list.filter((task) => task.id !== id));
+			showAlert({ showAlert: true, type: AlertType.deleteSuccess });
+			return;
+		}
+		if (operationContent === OperationContent.removeAll) {
+			showAlert({ showAlert: true, type: AlertType.clearSuccess });
+			setList([]);
+			return;
+		}
+		if (operationContent === OperationContent.finish) {
+			let isFinish = false;
+			setList(
+				_.map(list, (task) => {
+					if (task.id === id) {
+						isFinish = !task.isOver;
+						return { ...task, isOver: !task.isOver };
+					}
+					return task;
+				}),
+			);
+			if (isFinish) {
+				showAlert({ showAlert: true, type: AlertType.finishSuccess });
+			}
+		}
 	};
 	const showAlert = (alert: Alert, shouldClearTaskName: boolean = false) => {
 		setAlert(alert);
@@ -43,38 +93,6 @@ const TodoFeature = () => {
 	const removeAlert = () => {
 		setAlert({ showAlert: false });
 	};
-	const deleteTask = (id) => {
-		setList(list.filter((task) => task.id !== id));
-		showAlert({ showAlert: true, type: AlertType.deleteSuccess });
-	};
-
-	const finishTask = (id) => {
-		let isFinish = false;
-		setList(
-			_.map(list, (task) => {
-				if (task.id === id) {
-					isFinish = !task.isOver;
-					return { ...task, isOver: !task.isOver };
-				}
-				return task;
-			}),
-		);
-		if (isFinish) {
-			showAlert({ showAlert: true, type: AlertType.finishSuccess });
-		}
-	};
-	const editTask = (id) => {
-		const newList = list.filter((task) => task.id !== id);
-		const task = list.find((task) => task.id === id);
-		setEditId(task.id);
-		setTaskName(task.name);
-		setList(newList);
-		setIsEditing(true);
-	};
-	const clearList = () => {
-		setAlert({ showAlert: true, type: AlertType.clearSuccess });
-		setList([]);
-	};
 	const onChangeInputValue = (e) => {
 		setTaskName(e.target.value);
 	};
@@ -84,7 +102,12 @@ const TodoFeature = () => {
 	return (
 		<Container component="main" sx={{ textAlign: 'center', marginTop: 10 }}>
 			<AlertComponent alertContent={alert} removeAlert={removeAlert} />
-			<TodoInput onChangeInputValue={onChangeInputValue} handleSubmit={handleSubmit} taskName={taskName} />
+			<TodoInput
+				onChangeInputValue={onChangeInputValue}
+				handleSubmit={handleSubmit}
+				taskName={taskName}
+				label={isEditing ? '别想通过修改来快速完成任务' : '今天准备做点什么'}
+			/>
 			<EditingButton isEditing={isEditing} taskName={taskName} handleSubmit={handleSubmit} />
 			{!_.isEmpty(taskName) && <PrioritySelect taskType={taskType} handleChange={onChangeSelectValue} />}
 			<ClearListButton list={list} clearList={clearList} />
@@ -93,12 +116,12 @@ const TodoFeature = () => {
 	);
 };
 
-const TodoInput = ({ onChangeInputValue, handleSubmit, taskName }) => {
+const TodoInput = ({ onChangeInputValue, handleSubmit, taskName, label }) => {
 	return (
 		<TextField
 			variant="outlined"
 			onChange={onChangeInputValue}
-			label="今天准备做点什么"
+			label={label}
 			onKeyDown={(e) => {
 				if (e.key === 'Enter') {
 					handleSubmit(e);

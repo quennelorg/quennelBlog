@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Alert, OperationContent, Task } from '@site/src/components/TodoFeature/TodoModel';
-
+import { Alert, OperationContent, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
+import * as _ from 'lodash';
 const TodoViewModel = () => {
 	const [taskName, setTaskName] = useState('');
 	const [list, setList] = useState<Array<Task>>([]);
@@ -15,11 +15,26 @@ const TodoViewModel = () => {
 		}
 	};
 };
-export const setList = (list: Array<Task>, operation: OperationContent): Array<Task> => {
-	const newList = [];
-	if (operation === OperationContent.create) {
-	}
-	return newList;
+
+export const getNewlist = (list: Array<Task>, task: Task): Array<Task> => {
+	return [...list, task];
+};
+export const sortList = (list: Array<Task>): Array<Task> => {
+	return _.orderBy(
+		list,
+		[
+			'isOver',
+			(task) => {
+				const typeOrder = {
+					[TaskType.warning]: 0,
+					[TaskType.important]: 1,
+					[TaskType.normal]: 2,
+				};
+				return typeOrder[task.type];
+			},
+		],
+		['asc', 'asc'], // 升序排序
+	);
 };
 
 export default TodoViewModel;

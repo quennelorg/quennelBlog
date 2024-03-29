@@ -14,7 +14,8 @@ export enum OperationContent {
 	create = 0,
 	update = 1,
 	delete = 2,
-	removeAll = 3,
+	finish = 3,
+	removeAll = 4,
 }
 
 export enum TaskType {
@@ -22,10 +23,22 @@ export enum TaskType {
 	important = '重要',
 	warning = '第一个完成这个',
 }
+export const TaskPriorityColorMapping: Record<TaskType, TaskPriorityColor> = {
+	[TaskType.normal]: { textColor: 'info.main', disableColor: 'text.disabled', editButtonColor: 'warning', deleteButtonColor: 'error' },
+	[TaskType.important]: { textColor: 'warning.main', disableColor: 'text.disabled', editButtonColor: 'primary', deleteButtonColor: 'primary' },
+	[TaskType.warning]: { textColor: 'error.main', disableColor: 'text.disabled', editButtonColor: 'success', deleteButtonColor: 'success' },
+};
+
+export interface TaskPriorityColor {
+	textColor: string;
+	editButtonColor: string;
+	deleteButtonColor: string;
+	disableColor: string;
+}
 
 export enum AlertType {
 	createSuccess = '任务已记录，要做完哦！',
-	updateSuccess = '任务已修改，别想通过修改任务来完成！',
+	updateSuccess = '任务已修改，要快点做完哦！',
 	finishSuccess = '任务已完成🎉',
 	deleteSuccess = '任务已删除',
 	clearSuccess = '恭喜你！你已经完成了所有的任务',
