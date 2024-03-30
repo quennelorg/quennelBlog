@@ -39,6 +39,7 @@ export interface TaskPriorityColor {
 export enum AlertType {
 	createSuccess = '任务已记录，要做完哦！',
 	updateSuccess = '任务已修改，要快点做完哦！',
+	updateFailed = '你改了个啥，有这功夫赶紧完成去！',
 	finishSuccess = '任务已完成🎉',
 	deleteSuccess = '任务已删除',
 	clearSuccess = '恭喜你！你已经完成了所有的任务',
@@ -51,6 +52,7 @@ export type AlertCategory = 'success' | 'error' | 'warning';
 export const AlertCategoryMapping: Record<AlertType, AlertCategory> = {
 	[AlertType.createSuccess]: 'success',
 	[AlertType.updateSuccess]: 'success',
+	[AlertType.updateFailed]: 'error',
 	[AlertType.finishSuccess]: 'success',
 	[AlertType.deleteSuccess]: 'success',
 	[AlertType.clearSuccess]: 'success',

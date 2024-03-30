@@ -9,7 +9,7 @@ import FolderDeleteOutlinedIcon from '@mui/icons-material/FolderDeleteOutlined';
 import TaskList from '@site/src/components/TodoFeature/TaskList';
 import { getNewlist, getTimeId } from '@site/src/components/TodoFeature/TodoViewModel';
 import { useColorMode } from '@docusaurus/theme-common';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const TodoFeature = () => {
 	const { colorMode, setColorMode } = useColorMode();
@@ -25,6 +25,7 @@ const TodoFeature = () => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [editId, setEditId] = useState(null);
 	const [alert, setAlert] = useState<Alert>({ showAlert: false });
+	const [oldTask, setOldTask] = useState<Task>();
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!taskName || _.isEmpty(taskName)) {
@@ -50,6 +51,7 @@ const TodoFeature = () => {
 		setTaskType(task.type);
 		setList(newList);
 		setIsEditing(true);
+		setOldTask(task);
 	};
 	const finishTask = (id) => {
 		modifyTask(id, OperationContent.finish);
@@ -64,8 +66,11 @@ const TodoFeature = () => {
 	const modifyTask = (id: string, operationContent: OperationContent) => {
 		if ([OperationContent.create, OperationContent.update].includes(operationContent)) {
 			const task = { id: id, name: taskName, type: taskType, isOver: false };
-			setList(getNewlist(list, task));
-			showAlert({ showAlert: true, type: operationContent === OperationContent.create ? AlertType.createSuccess : AlertType.updateSuccess }, true);
+			const needOldTask = _.isEqual(_.omit(oldTask, 'id'), _.omit(task, 'id')) && operationContent === OperationContent.update;
+			setList(getNewlist(list, needOldTask ? oldTask : task));
+			const alertType: AlertType =
+				operationContent === OperationContent.create ? AlertType.createSuccess : needOldTask ? AlertType.updateFailed : AlertType.updateSuccess;
+			showAlert({ showAlert: true, type: alertType }, true);
 			return;
 		}
 		if (operationContent === OperationContent.delete) {
