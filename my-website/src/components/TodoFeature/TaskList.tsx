@@ -1,24 +1,26 @@
 import React from 'react';
-import { Stack, ListItem, List, Checkbox, Typography, ListItemButton, ListItemIcon, IconButton } from '@mui/material';
+import { Stack, ListItem, List, Checkbox, Typography, ListItemButton, ListItemIcon, IconButton, Paper } from '@mui/material';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { TaskPriorityColorMapping } from '@site/src/components/TodoFeature/TodoModel';
 import * as _ from 'lodash';
 const TaskList = ({ tasks, deleteTask, editTask, finishTask }) => {
 	return (
-		<List sx={{ width: '100%', maxWidth: 560, bgcolor: 'text.disabled' }}>
-			{tasks.map((task) => {
-				return (
-					<TaskListItem
-						task={task}
-						taskPriorityColor={TaskPriorityColorMapping[task.type]}
-						deleteTask={deleteTask}
-						editTask={editTask}
-						finishTask={finishTask}
-					/>
-				);
-			})}
-		</List>
+		<Paper elevation={6} square={false} sx={{ bgcolor: 'background.paper' }}>
+			<List sx={{ p: 1, width: '100%' }}>
+				{tasks.map((task) => {
+					return (
+						<TaskListItem
+							task={task}
+							taskPriorityColor={TaskPriorityColorMapping[task.type]}
+							deleteTask={deleteTask}
+							editTask={editTask}
+							finishTask={finishTask}
+						/>
+					);
+				})}
+			</List>
+		</Paper>
 	);
 };
 
@@ -59,7 +61,7 @@ const TaskListItem = ({ task, taskPriorityColor, deleteTask, editTask, finishTas
 				</ListItemIcon>
 				<Typography
 					sx={{ width: '70%' }}
-					style={{ color: task.isOver ? 'gray' : 'white', textDecoration: task.isOver ? 'line-through' : '' }}
+					style={{ color: task.isOver ? 'white' : 'text.secondary', textDecoration: task.isOver ? 'line-through' : '' }}
 					key={task.id}
 				>
 					{task.name}
