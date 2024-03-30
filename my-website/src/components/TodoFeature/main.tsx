@@ -130,7 +130,7 @@ const TodoFeature = () => {
 						<Grid item xs={4}>
 							{list.length > 0 && <ClearListButton list={list} clearList={clearList} />}
 						</Grid>
-						<Grid item xs={12}>
+						<Grid item xs={12} sx={{ opacity: isEditing ? 0.5 : 1, pointerEvents: isEditing ? 'none' : 'auto' }}>
 							{list.length > 0 && <TaskList tasks={list} deleteTask={deleteTask} finishTask={finishTask} editTask={editTask} />}
 						</Grid>
 					</Grid>
