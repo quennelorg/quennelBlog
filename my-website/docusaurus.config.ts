@@ -139,7 +139,7 @@ const config: Config = {
 					items: [
 						{
 							label: 'Todo',
-							to: '/todo',
+							to: '/todo/home',
 						},
 					],
 				},
