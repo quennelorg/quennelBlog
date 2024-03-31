@@ -85,9 +85,9 @@ const config: Config = {
 			items: [
 				{
 					type: 'docSidebar',
-					sidebarId: 'tutorialSidebar',
+					sidebarId: 'techSidebar',
 					position: 'left',
-					label: 'Tutorial',
+					label: 'Tech',
 				},
 				{ to: '/blog', label: 'Blog', position: 'left' },
 				{ to: '/todo/home', label: 'Todo', position: 'left' },
@@ -112,7 +112,7 @@ const config: Config = {
 					title: 'Docs',
 					items: [
 						{
-							label: 'Tutorial',
+							label: 'Tech',
 							to: '/docs/intro',
 						},
 					],
@@ -146,7 +146,6 @@ const config: Config = {
 				{
 					title: 'More',
 					items: [
-						{ label: 'Blog', to: '/blog' },
 						{
 							label: 'GitHub',
 							href: 'https://github.com/Quennel-coder',
