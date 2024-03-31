@@ -1,0 +1,8 @@
+{
+  "label": "MUI",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "A css framework for react"
+  }
+}
