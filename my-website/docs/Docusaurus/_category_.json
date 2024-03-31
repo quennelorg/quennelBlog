@@ -1,0 +1,8 @@
+{
+  "label": "Docusaurus",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "\uD83E\uDDD0 Docusaurus is a static-site generator. It builds a single-page application with fast client-side navigation, leveraging the full power of React to make your site interactive. "
+  }
+}
