@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
 	title: 'QuennelCoder',
-	tagline: 'Blog everything',
+	tagline: 'Go everything!',
 	favicon: 'img/cat.ico',
 
 	// Set the production url of your site here
