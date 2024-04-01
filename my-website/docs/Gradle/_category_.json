@@ -1,0 +1,8 @@
+{
+  "label": "Gradle",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "The leading software platform for improving developer productivity. Now supporting Maven, Bazel, sbt, and Gradle build systems."
+  }
+}
