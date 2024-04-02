@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as _ from 'lodash';
 import { Alert, AlertType, OperationContent, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
 import AlertComponent from '@site/src/components/TodoFeature/AlertComponent';
@@ -7,7 +7,7 @@ import SendIcon from '@mui/icons-material/Send';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import FolderDeleteOutlinedIcon from '@mui/icons-material/FolderDeleteOutlined';
 import TaskList from '@site/src/components/TodoFeature/TaskList';
-import { getNewlist, getTimeId } from '@site/src/components/TodoFeature/TodoViewModel';
+import { getNewlist, getTimeId, isEmptyList, getLocalStorageList, setLocalStorageList } from '@site/src/components/TodoFeature/TodoViewModel';
 import { useColorMode } from '@docusaurus/theme-common';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -21,11 +21,15 @@ const TodoFeature = () => {
 	});
 	const [taskName, setTaskName] = useState('');
 	const [taskType, setTaskType] = useState<TaskType>(TaskType.normal);
-	const [list, setList] = useState<Array<Task>>([]);
+	const [list, setList] = useState<Array<Task>>(getLocalStorageList());
 	const [isEditing, setIsEditing] = useState(false);
 	const [editId, setEditId] = useState(null);
 	const [alert, setAlert] = useState<Alert>({ showAlert: false });
 	const [oldTask, setOldTask] = useState<Task>();
+
+	useEffect(() => {
+		setLocalStorageList(list);
+	}, [list]);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!taskName || _.isEmpty(taskName)) {
@@ -133,10 +137,10 @@ const TodoFeature = () => {
 							{!_.isEmpty(taskName) && <PrioritySelect taskType={taskType} handleChange={onChangeSelectValue} />}
 						</Grid>
 						<Grid item xs={4}>
-							{list.length > 0 && <ClearListButton list={list} clearList={clearList} />}
+							{!isEmptyList(list) && <ClearListButton list={list} clearList={clearList} />}
 						</Grid>
 						<Grid item xs={12} sx={{ opacity: isEditing ? 0.5 : 1, pointerEvents: isEditing ? 'none' : 'auto' }}>
-							{list.length > 0 && <TaskList tasks={list} deleteTask={deleteTask} finishTask={finishTask} editTask={editTask} />}
+							{!isEmptyList(list) && <TaskList tasks={list} deleteTask={deleteTask} finishTask={finishTask} editTask={editTask} />}
 						</Grid>
 					</Grid>
 				</Box>

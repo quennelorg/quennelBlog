@@ -33,22 +33,20 @@ export const getNewlist = (list: Task[], task: Task): Task[] => {
 export const getTimeId = (): string => {
 	return new Date().getTime().toString();
 };
-export const sortList = (list: Array<Task>): Array<Task> => {
-	return _.orderBy(
-		list,
-		[
-			'isOver',
-			(task) => {
-				const typeOrder = {
-					[TaskType.warning]: 0,
-					[TaskType.important]: 1,
-					[TaskType.normal]: 2,
-				};
-				return typeOrder[task.type];
-			},
-		],
-		['asc', 'asc'], // 升序排序
-	);
+
+export const getLocalStorageList = () => {
+	let list = localStorage.getItem('list');
+	if (_.isEmpty(list) || !list) {
+		return [];
+	}
+	return JSON.parse(list);
+};
+export const setLocalStorageList = (list: any) => {
+	console.log(`setLocalStorageList: ${list}`);
+	localStorage.setItem('list', JSON.stringify(list));
+};
+export const isEmptyList = (list) => {
+	return _.isEmpty(list) || !list;
 };
 
 export default TodoViewModel;
