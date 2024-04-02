@@ -34,17 +34,6 @@ export const getTimeId = (): string => {
 	return new Date().getTime().toString();
 };
 
-export const getLocalStorageList = () => {
-	let list = localStorage.getItem('list');
-	if (_.isEmpty(list) || !list) {
-		return [];
-	}
-	return JSON.parse(list);
-};
-export const setLocalStorageList = (list: any) => {
-	console.log(`setLocalStorageList: ${list}`);
-	localStorage.setItem('list', JSON.stringify(list));
-};
 export const isEmptyList = (list) => {
 	return _.isEmpty(list) || !list;
 };

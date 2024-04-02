@@ -7,9 +7,10 @@ import SendIcon from '@mui/icons-material/Send';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import FolderDeleteOutlinedIcon from '@mui/icons-material/FolderDeleteOutlined';
 import TaskList from '@site/src/components/TodoFeature/TaskList';
-import { getNewlist, getTimeId, isEmptyList, getLocalStorageList, setLocalStorageList } from '@site/src/components/TodoFeature/TodoViewModel';
+import { getNewlist, getTimeId, isEmptyList } from '@site/src/components/TodoFeature/TodoViewModel';
 import { useColorMode } from '@docusaurus/theme-common';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import useLocalStorage from '@site/src/hooks/useLocalStorage';
 
 const TodoFeature = () => {
 	const { colorMode, setColorMode } = useColorMode();
@@ -21,15 +22,11 @@ const TodoFeature = () => {
 	});
 	const [taskName, setTaskName] = useState('');
 	const [taskType, setTaskType] = useState<TaskType>(TaskType.normal);
-	const [list, setList] = useState<Array<Task>>(getLocalStorageList());
+	const [list, setList] = useLocalStorage('list', []);
 	const [isEditing, setIsEditing] = useState(false);
 	const [editId, setEditId] = useState(null);
 	const [alert, setAlert] = useState<Alert>({ showAlert: false });
 	const [oldTask, setOldTask] = useState<Task>();
-
-	useEffect(() => {
-		setLocalStorageList(list);
-	}, [list]);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!taskName || _.isEmpty(taskName)) {
