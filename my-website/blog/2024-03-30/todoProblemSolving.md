@@ -22,3 +22,6 @@ const needOldTask = _.isEqual(_.omit(oldTask, 'id'), _.omit(task, 'id')) && oper
 ```  
 Q：输入框防抖  
 A：[ts节流与防抖的封装](https://juejin.cn/post/7214458935171465276)
+
+Q: The final argument passed to useEffect changed size between renders. The order and size of this array must remain constant.
+A:[useEffect deps need array](https://stackoverflow.com/questions/59864338/the-final-argument-passed-to-useeffect-changed-size-between-renders-except-i)
