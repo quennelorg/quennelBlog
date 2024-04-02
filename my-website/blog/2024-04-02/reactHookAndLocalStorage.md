@@ -21,6 +21,7 @@ localStorage 与 sessionStorage 类似，不同之处在于 localStorage 数据�
 ### [useEffect](https://react.dev/reference/react/useEffect)
 useEffect 是一个 React Hook，可让您将组件与外部系统同步。  
 [基于 useEffect 封装高阶 hook API](https://juejin.cn/post/7078908086487875592)
+[Using localStorage with React hooks](https://lightrains.com/blogs/using-localstorage-hook-react/)
 
 ### [useState](https://react.dev/reference/react/useState)
 useState 是一个 React Hook，可让您向组件添加状态变量。
