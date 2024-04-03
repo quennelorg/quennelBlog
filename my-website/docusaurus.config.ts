@@ -59,7 +59,7 @@ const config: Config = {
 			'classic',
 			{
 				docs: {
-					sidebarPath: './sidebars.ts',
+					sidebarPath: './sidebars/sidebarsFrontend.ts',
 				},
 				blog: {
 					showReadingTime: true,
@@ -73,19 +73,18 @@ const config: Config = {
 		],
 	],
 
-	// todo future
-	// plugins: [
-	// 	[
-	// 		'@docusaurus/plugin-content-docs',
-	// 		{
-	// 			id: 'community',
-	// 			path: 'community',
-	// 			routeBasePath: 'community',
-	// 			sidebarPath: './sidebarsCommunity.js',
-	// 			// ... other options
-	// 		},
-	// 	],
-	// ],
+	plugins: [
+		[
+			'@docusaurus/plugin-content-docs',
+			{
+				id: 'backend',
+				path: 'backendDocs',
+				routeBasePath: 'backendDocs',
+				sidebarPath: './sidebars/sidebarsBackend.ts',
+				// ... other options
+			},
+		],
+	],
 
 	themeConfig: {
 		// Replace with your project's social card
@@ -99,9 +98,15 @@ const config: Config = {
 			items: [
 				{
 					type: 'docSidebar',
-					sidebarId: 'techSidebar',
+					sidebarId: 'frontend',
 					position: 'left',
-					label: 'Tech',
+					label: 'Frontend',
+				},
+				{
+					position: 'left',
+					label: 'Backend',
+					to: '/backendDocs/intro',
+					activeBaseRegex: `/backendDocs/`,
 				},
 				{ to: '/blog', label: 'Blog', position: 'left' },
 				{ to: '/todo/home', label: 'Todo', position: 'left' },
@@ -126,8 +131,12 @@ const config: Config = {
 					title: 'Docs',
 					items: [
 						{
-							label: 'Tech',
+							label: 'Frontend',
 							to: '/docs/intro',
+						},
+						{
+							label: 'Backend',
+							to: '/backendDocs/intro',
 						},
 					],
 				},
