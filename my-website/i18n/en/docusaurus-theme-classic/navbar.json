@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "QuennelCoder",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Quennel Cat",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Tech": {
+    "message": "Tech",
+    "description": "Navbar item with label Tech"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.Todo": {
+    "message": "Todo",
+    "description": "Navbar item with label Todo"
+  }
+}

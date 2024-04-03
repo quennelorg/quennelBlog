@@ -1,0 +1,46 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.techSidebar.category.Docusaurus": {
+    "message": "Docusaurus",
+    "description": "The label for category Docusaurus in sidebar techSidebar"
+  },
+  "sidebar.techSidebar.category.Docusaurus.link.generated-index.description": {
+    "message": "🧐 Docusaurus is a static-site generator. It builds a single-page application with fast client-side navigation, leveraging the full power of React to make your site interactive. ",
+    "description": "The generated-index page description for category Docusaurus in sidebar techSidebar"
+  },
+  "sidebar.techSidebar.category.Gradle": {
+    "message": "Gradle",
+    "description": "The label for category Gradle in sidebar techSidebar"
+  },
+  "sidebar.techSidebar.category.Gradle.link.generated-index.description": {
+    "message": "The leading software platform for improving developer productivity. Now supporting Maven, Bazel, sbt, and Gradle build systems.",
+    "description": "The generated-index page description for category Gradle in sidebar techSidebar"
+  },
+  "sidebar.techSidebar.category.MUI": {
+    "message": "MUI",
+    "description": "The label for category MUI in sidebar techSidebar"
+  },
+  "sidebar.techSidebar.category.MUI.link.generated-index.description": {
+    "message": "A css framework for react",
+    "description": "The generated-index page description for category MUI in sidebar techSidebar"
+  },
+  "sidebar.techSidebar.category.Tutorial": {
+    "message": "Tutorial",
+    "description": "The label for category Tutorial in sidebar techSidebar"
+  },
+  "sidebar.techSidebar.category.Tutorial - Basics": {
+    "message": "Tutorial - Basics",
+    "description": "The label for category Tutorial - Basics in sidebar techSidebar"
+  },
+  "sidebar.techSidebar.category.Tutorial - Basics.link.generated-index.description": {
+    "message": "5 minutes to learn the most important Docusaurus concepts.",
+    "description": "The generated-index page description for category Tutorial - Basics in sidebar techSidebar"
+  },
+  "sidebar.techSidebar.category.Tutorial - Extras": {
+    "message": "Tutorial - Extras",
+    "description": "The label for category Tutorial - Extras in sidebar techSidebar"
+  }
+}
