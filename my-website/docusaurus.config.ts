@@ -73,18 +73,19 @@ const config: Config = {
 		],
 	],
 
-	plugins: [
-		[
-			'@docusaurus/plugin-content-docs',
-			{
-				id: 'community',
-				path: 'community',
-				routeBasePath: 'community',
-				sidebarPath: './sidebarsCommunity.js',
-				// ... other options
-			},
-		],
-	],
+	// todo future
+	// plugins: [
+	// 	[
+	// 		'@docusaurus/plugin-content-docs',
+	// 		{
+	// 			id: 'community',
+	// 			path: 'community',
+	// 			routeBasePath: 'community',
+	// 			sidebarPath: './sidebarsCommunity.js',
+	// 			// ... other options
+	// 		},
+	// 	],
+	// ],
 
 	themeConfig: {
 		// Replace with your project's social card
