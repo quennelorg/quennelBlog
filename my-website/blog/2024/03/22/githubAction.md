@@ -1,6 +1,6 @@
 ---
 slug: githubAction 
-title: GithubAction Deploy
+title: GithubAction 部署
 authors: quennel
 tags: [github, deploy]
 ---

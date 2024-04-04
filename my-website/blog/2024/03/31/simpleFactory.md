@@ -1,6 +1,6 @@
 ---
 slug: simpleFactory
-title: Study for simple factory
+title: 研究简单工厂模式
 authors: quennel
 tags: [DesignModel, simpleFactory]
 ---

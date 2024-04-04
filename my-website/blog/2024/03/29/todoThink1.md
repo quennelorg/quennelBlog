@@ -1,6 +1,6 @@
 ---
 slug: todoThink1
-title: Thinking for create todo
+title: todo功能随想
 authors: quennel
 tags: [todo, Thinking]
 ---

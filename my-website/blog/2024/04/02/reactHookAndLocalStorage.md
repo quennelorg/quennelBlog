@@ -1,6 +1,6 @@
 ---
 slug: reactHookAndLocalStorage
-title: Study for react hook and localStorage
+title: 研究 react hook and localStorage
 authors: quennel
 tags: [useState, useEffect, localStorage, react Hook]
 ---

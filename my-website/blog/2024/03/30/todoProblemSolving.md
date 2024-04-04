@@ -1,6 +1,6 @@
 ---
 slug: todoProblemSolving
-title: Bolg tips for solving todo feature problem
+title:  解决todo功能问题的记录
 authors: quennel
 tags: [todo, ProblemSolving]
 ---

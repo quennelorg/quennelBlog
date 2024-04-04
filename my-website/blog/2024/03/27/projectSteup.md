@@ -1,6 +1,6 @@
 ---
 slug: projectSetupByFrontEnd 
-title: How to setup a normal project
+title: 如何初始化一个项目
 authors: quennel
 tags: [project, setup, pre-commit, husky, pre-push]
 ---

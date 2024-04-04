@@ -1,6 +1,6 @@
 ---
 slug: welcome
-title: Welcome
+title: 欢迎
 authors: quennel
 tags: [hello, goodbye]
 ---

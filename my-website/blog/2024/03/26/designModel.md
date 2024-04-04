@@ -1,6 +1,6 @@
 ---
 slug: designModel 
-title: Learn DesignModel in Software
+title: 学习软件设计模式
 authors: quennel
 tags: [DesignModel, Software]
 ---
