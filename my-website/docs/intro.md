@@ -6,6 +6,10 @@ sidebar_position: 1
 
 Let's explore **Frontend** World.
 
+## API
+### [GeoDB](http://geodb-cities-api.wirefreethought.com/)
+### [OpenWeather](https://openweathermap.org/api)
+
 ## 库
 ### [React](https://react.dev/)
 The library for web and native user interfaces
