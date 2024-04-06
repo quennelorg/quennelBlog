@@ -6,10 +6,6 @@ sidebar_position: 1
 
 Let's explore **Frontend** World.
 
-## API
-### [GeoDB](http://geodb-cities-api.wirefreethought.com/)
-### [OpenWeather](https://openweathermap.org/api)
-
 ## 库
 ### [React](https://react.dev/)
 The library for web and native user interfaces
@@ -32,3 +28,10 @@ Next.js 被一些世界上最大的公司使用，使您能够利用 React 组�
 ### [MUI](https://mui.com/)
 [Docs Address](/docs/category/mui)  
 Move faster with intuitive React UI tools
+
+### [Axios](https://axios-http.com/docs/intro)
+Axios 是一个基于 Promise 的 Node.js 和浏览器 HTTP 客户端
+
+## API
+### [GeoDB](http://geodb-cities-api.wirefreethought.com/)
+### [OpenWeather](https://openweathermap.org/api)
