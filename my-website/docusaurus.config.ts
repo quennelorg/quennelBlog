@@ -59,7 +59,7 @@ const config: Config = {
 			'classic',
 			{
 				docs: {
-					sidebarPath: './sidebars/sidebarsFrontend.ts',
+					sidebarPath: './sidebars.ts',
 				},
 				blog: {
 					showReadingTime: true,
@@ -74,6 +74,16 @@ const config: Config = {
 	],
 
 	plugins: [
+		[
+			'@docusaurus/plugin-content-docs',
+			{
+				id: 'frontend',
+				path: 'frontendDocs',
+				routeBasePath: 'frontendDocs',
+				sidebarPath: './sidebars/sidebarsFrontend.ts',
+				// ... other options
+			},
+		],
 		[
 			'@docusaurus/plugin-content-docs',
 			{
@@ -98,9 +108,15 @@ const config: Config = {
 			items: [
 				{
 					type: 'docSidebar',
-					sidebarId: 'frontend',
+					sidebarId: 'techSidebar',
+					position: 'left',
+					label: 'Tech',
+				},
+				{
 					position: 'left',
 					label: 'Frontend',
+					to: '/frontendDocs/intro',
+					activeBaseRegex: `/frontendDocs/`,
 				},
 				{
 					position: 'left',
@@ -131,8 +147,12 @@ const config: Config = {
 					title: 'Docs',
 					items: [
 						{
-							label: 'Frontend',
+							label: 'Tech',
 							to: '/docs/intro',
+						},
+						{
+							label: 'Frontend',
+							to: '/frontendDocs/intro',
 						},
 						{
 							label: 'Backend',
