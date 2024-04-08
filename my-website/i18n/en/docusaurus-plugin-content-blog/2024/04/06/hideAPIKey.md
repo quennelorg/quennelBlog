@@ -16,4 +16,5 @@ The initial idea was to adjust the key on the front end. At this time, I found t
 So if someone checks the network, the request will expose the key, so the correct method is to put the key on the backend. The backend handles private content and deploys it on a private server or serverless cloud, such as AWS, GCP, Alibaba Cloud, etc.  
 
 Reference：
-[How to hide your API keys SAFELY when using React](https://www.youtube.com/watch?v=FcwfjMebjTU)
+[How to hide your API keys SAFELY when using React](https://www.youtube.com/watch?v=FcwfjMebjTU)  
+[Hiding api key](https://github.com/orgs/community/discussions/57070)

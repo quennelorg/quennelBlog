@@ -16,4 +16,5 @@ date: 2024-04-06T19:00
 所以如果有人去检查network，请求会暴露出key，所以正确的方法应该把key放在后端做，后端处理隐私内容，部署在私人的服务器或者serverless云端，例如 AWS，GCP， 阿里云等  
 
 参考内容：  
-[How to hide your API keys SAFELY when using React](https://www.youtube.com/watch?v=FcwfjMebjTU)
+[How to hide your API keys SAFELY when using React](https://www.youtube.com/watch?v=FcwfjMebjTU)  
+[Hiding api key](https://github.com/orgs/community/discussions/57070)
