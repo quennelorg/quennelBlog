@@ -15,5 +15,5 @@ Check the render method of TableComponent.
 
 It is expected that the reason is that value has a type value.
 
-参考内容：  
+Reference：  
 [Understanding unique keys for array children in React.js](https://stackoverflow.com/questions/28329382/understanding-unique-keys-for-array-children-in-react-js)
