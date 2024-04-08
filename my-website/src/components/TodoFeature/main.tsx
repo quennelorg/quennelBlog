@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import * as _ from 'lodash';
-import { Alert, AlertType, OperationContent, Task, TaskType, TaskTypeMapping } from '@site/src/components/TodoFeature/TodoModel';
+import { Alert, AlertType, OperationContent, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
 import AlertComponent from '@site/src/components/TodoFeature/AlertComponent';
 import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
@@ -12,7 +12,6 @@ import { useColorMode } from '@docusaurus/theme-common';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import useLocalStorage from '@site/src/hooks/useLocalStorage';
 import CustomizeInput from '@site/src/components/common/input';
-import CustomizeSelect from '@site/src/components/common/select';
 
 const TodoFeature = () => {
 	const { colorMode, setColorMode } = useColorMode();
@@ -133,7 +132,7 @@ const TodoFeature = () => {
 							<EditingButton isEditing={isEditing} taskName={taskName} handleSubmit={handleSubmit} />
 						</Grid>
 						<Grid item xs={8}>
-							{!_.isEmpty(taskName) && <CustomizeSelect selectValue={taskType} handleChange={onChangeSelectValue} menuItemValue={TaskTypeMapping} />}
+							{!_.isEmpty(taskName) && <PrioritySelect taskType={taskType} handleChange={onChangeSelectValue} />}
 						</Grid>
 						<Grid item xs={4}>
 							{!isEmptyList(list) && <ClearListButton list={list} clearList={clearList} />}
