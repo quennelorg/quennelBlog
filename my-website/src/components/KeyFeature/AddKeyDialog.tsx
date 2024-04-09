@@ -6,10 +6,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
+import { APITYPE } from '@site/src/components/KeyFeature/KeyModel';
 
-const AddKeyDialog = () => {
-	const [open, setOpen] = React.useState(false);
-
+const AddKeyDialog = ({ open, setOpen, handleSubmit }) => {
 	const handleClickOpen = () => {
 		setOpen(true);
 	};
@@ -28,20 +28,25 @@ const AddKeyDialog = () => {
 				onClose={handleClose}
 				PaperProps={{
 					component: 'form',
-					onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-						event.preventDefault();
-						const formData = new FormData(event.currentTarget);
-						const formJson = Object.fromEntries((formData as any).entries());
-						const key = formJson.key;
-						console.log(key);
-						handleClose();
-					},
+					onSubmit: (event: React.FormEvent<HTMLFormElement>) => handleSubmit(event),
 				}}
 			>
 				<DialogTitle>填写框</DialogTitle>
 				<DialogContent>
 					<DialogContentText>请输入你个人key用来享受服务</DialogContentText>
-					<TextField autoFocus required margin="dense" id="name" name="key" label="在这里输入你的key" type="key" fullWidth variant="standard" />
+					<TextField
+						autoFocus
+						required
+						margin="dense"
+						id="keyName"
+						name="keyName"
+						label="请给你的key起一个名字"
+						type="keyName"
+						fullWidth
+						variant="standard"
+					/>
+					<TextField required margin="dense" id="keyId" name="keyId" label="在这里输入你的key" type="keyId" fullWidth variant="standard" />
+					<RadioButtonsGroup />
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={handleClose}>取消</Button>
@@ -49,6 +54,18 @@ const AddKeyDialog = () => {
 				</DialogActions>
 			</Dialog>
 		</React.Fragment>
+	);
+};
+
+const RadioButtonsGroup = () => {
+	return (
+		<FormControl>
+			<FormLabel id="demo-radio-buttons-group-label">API</FormLabel>
+			<RadioGroup row aria-labelledby="demo-radio-buttons-group-label" defaultValue={APITYPE.geo} name="APITYPE">
+				<FormControlLabel value={APITYPE.geo} control={<Radio />} label="Geo" />
+				<FormControlLabel value={APITYPE.weather} control={<Radio />} label="Weather" />
+			</RadioGroup>
+		</FormControl>
 	);
 };
 export default AddKeyDialog;
