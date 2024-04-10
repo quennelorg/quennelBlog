@@ -1,15 +1,77 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
-import { APITYPE } from '@site/src/components/keyFeature/KeyModel';
+import { useState } from 'react';
+import {
+	Button,
+	Dialog,
+	DialogActions,
+	DialogContent,
+	DialogContentText,
+	DialogTitle,
+	FormControl,
+	FormControlLabel,
+	FormLabel,
+	Radio,
+	RadioGroup,
+	TextField,
+} from '@mui/material';
+import { APITYPE, DIALOGTITLE } from '@site/src/components/keyFeature/KeyModel';
+import { fetchCities } from '@site/src/components/service/geo/geoService';
+import LoadingView from '@site/src/components/keyFeature/viewController/LoadingView';
 
-const AddKeyDialog = ({ open, handleClose, handleSubmit }) => {
+const AddKeyDialog = ({ open, handleClose, testing, setTesting, success, setSuccess, addList }) => {
+	const [loading, setLoading] = useState(false);
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		const formData = new FormData(e.currentTarget);
+		const formJson = Object.fromEntries((formData as any).entries());
+		setTesting(true);
+		setLoading(true);
+		getData(formJson);
+		// addList({ name: formJson.keyName, id: formJson.keyId, type: Number(formJson.APITYPE) });
+	};
+
+	const getData = (formJson: any) => {
+		const { keyId: key, keyName: name, APITYPE: type } = formJson;
+		fetchCities(key)
+			.then((res) => {
+				console.log(res.data);
+				setSuccess(true);
+				setLoading(false);
+				addList({ name: name, id: key, type: Number(type) });
+			})
+			.catch((error) => {
+				console.log(error);
+				setLoading(false);
+				setSuccess(false);
+			});
+	};
+
+	const handleButtonClick = () => {
+		if (loading) {
+			setSuccess(true);
+			setLoading(false);
+			return;
+		}
+		if (success) {
+			handleClose();
+		} else {
+			setTesting(false);
+		}
+	};
+
+	const getDialogTitle = () => {
+		if (!testing) {
+			return DIALOGTITLE.edit;
+		}
+		if (loading) {
+			return DIALOGTITLE.test;
+		}
+		if (success) {
+			return DIALOGTITLE.success;
+		}
+		return DIALOGTITLE.fail;
+	};
+
 	return (
 		<React.Fragment>
 			<Dialog
@@ -20,7 +82,35 @@ const AddKeyDialog = ({ open, handleClose, handleSubmit }) => {
 					onSubmit: (event: React.FormEvent<HTMLFormElement>) => handleSubmit(event),
 				}}
 			>
-				<DialogTitle>填写框</DialogTitle>
+				<DialogTitle>{getDialogTitle()}</DialogTitle>
+				<ApiDialogContent testing={testing} loading={loading} success={success} handleButtonClick={handleButtonClick} />
+				<ApiDialogActions testing={testing} handleClose={handleClose} />
+			</Dialog>
+		</React.Fragment>
+	);
+};
+
+const ApiDialogActions = ({ testing, handleClose }) => {
+	return (
+		<>
+			{!testing && (
+				<DialogActions>
+					<Button onClick={handleClose}>取消</Button>
+					<Button type="submit">提交</Button>
+				</DialogActions>
+			)}
+		</>
+	);
+};
+
+const ApiDialogContent = ({ testing, loading, success, handleButtonClick }) => {
+	return (
+		<>
+			{testing ? (
+				<DialogContent>
+					<LoadingView loading={loading} success={success} handleButtonClick={handleButtonClick} />
+				</DialogContent>
+			) : (
 				<DialogContent>
 					<DialogContentText>请输入你个人key用来享受服务</DialogContentText>
 					<TextField
@@ -29,7 +119,7 @@ const AddKeyDialog = ({ open, handleClose, handleSubmit }) => {
 						margin="dense"
 						id="keyName"
 						name="keyName"
-						label="请给你的key起一个名字"
+						label="请给你的key起一个名字,例如注册key的邮箱"
 						type="keyName"
 						fullWidth
 						variant="standard"
@@ -37,12 +127,8 @@ const AddKeyDialog = ({ open, handleClose, handleSubmit }) => {
 					<TextField required margin="dense" id="keyId" name="keyId" label="在这里输入你的key" type="keyId" fullWidth variant="standard" />
 					<RadioButtonsGroup />
 				</DialogContent>
-				<DialogActions>
-					<Button onClick={handleClose}>取消</Button>
-					<Button type="submit">提交</Button>
-				</DialogActions>
-			</Dialog>
-		</React.Fragment>
+			)}
+		</>
 	);
 };
 

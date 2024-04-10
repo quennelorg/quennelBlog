@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import AddKeyDialog from '@site/src/components/keyFeature/viewController/AddKeyDialog';
 import useLocalStorage from '@site/src/hooks/useLocalStorage';
 import KeyBar from '@site/src/components/keyFeature/viewController/KeyBar';
@@ -8,10 +8,14 @@ import Button from '@mui/material/Button';
 import { fetchCities } from '@site/src/components/service/geo/geoService';
 
 const KeyFeature = () => {
-	const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = useState(false);
+	const [testing, setTesting] = useState(false);
+	const [success, setSuccess] = useState(false);
 	const [list, setList] = useLocalStorage('API_KEY_LIST', []);
 
 	const handleClickOpen = () => {
+		setTesting(false);
+		setSuccess(false);
 		setOpen(true);
 	};
 
@@ -19,16 +23,6 @@ const KeyFeature = () => {
 		setOpen(false);
 	};
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		const formData = new FormData(e.currentTarget);
-		const formJson = Object.fromEntries((formData as any).entries());
-		const key = formJson.keyId;
-		console.log(formJson);
-		setOpen(false);
-		fetchCities(key);
-		addList({ name: formJson.keyName, id: formJson.keyId, type: Number(formJson.APITYPE) });
-	};
 	const addList = (key: key) => {
 		setList([...list, key]);
 	};
@@ -41,7 +35,15 @@ const KeyFeature = () => {
 			<Button variant="outlined" onClick={handleRemove}>
 				清除你的key
 			</Button>
-			<AddKeyDialog open={open} handleClose={handleClose} handleSubmit={handleSubmit} />
+			<AddKeyDialog
+				open={open}
+				handleClose={handleClose}
+				testing={testing}
+				setTesting={setTesting}
+				success={success}
+				setSuccess={setSuccess}
+				addList={addList}
+			/>
 			<KeyBar list={list} handleClickOpen={handleClickOpen} />
 		</Box>
 	);
