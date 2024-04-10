@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import * as _ from 'lodash';
-import { Alert, AlertType, OperationContent, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
-import AlertComponent from '@site/src/components/TodoFeature/AlertComponent';
+import { Alert, AlertType, OperationContent, Task, TaskType } from '@site/src/components/todoFeature/TodoModel';
+import AlertComponent from '@site/src/components/todoFeature/AlertComponent';
 import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import FolderDeleteOutlinedIcon from '@mui/icons-material/FolderDeleteOutlined';
-import TaskList from '@site/src/components/TodoFeature/TaskList';
-import { getNewlist, getTimeId, isEmptyList } from '@site/src/components/TodoFeature/TodoViewModel';
+import TaskList from '@site/src/components/todoFeature/TaskList';
+import { getNewlist, getTimeId, isEmptyList } from '@site/src/components/todoFeature/TodoViewModel';
 import { useColorMode } from '@docusaurus/theme-common';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import useLocalStorage from '@site/src/hooks/useLocalStorage';

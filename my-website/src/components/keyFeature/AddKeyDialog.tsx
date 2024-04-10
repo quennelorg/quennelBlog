@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
-import { APITYPE } from '@site/src/components/KeyFeature/KeyModel';
+import { APITYPE } from '@site/src/components/keyFeature/KeyModel';
 
 const AddKeyDialog = ({ open, handleClose, handleSubmit }) => {
 	return (

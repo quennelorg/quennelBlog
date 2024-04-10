@@ -2,7 +2,7 @@ import React from 'react';
 import { Stack, ListItem, List, Checkbox, Typography, ListItemButton, ListItemIcon, IconButton, Paper } from '@mui/material';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { TaskPriorityColorMapping } from '@site/src/components/TodoFeature/TodoModel';
+import { TaskPriorityColorMapping } from '@site/src/components/todoFeature/TodoModel';
 import * as _ from 'lodash';
 const TaskList = ({ tasks, deleteTask, editTask, finishTask }) => {
 	return (

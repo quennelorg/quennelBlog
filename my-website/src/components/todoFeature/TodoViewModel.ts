@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, Task, TaskType } from '@site/src/components/TodoFeature/TodoModel';
+import { Alert, Task, TaskType } from '@site/src/components/todoFeature/TodoModel';
 import * as _ from 'lodash';
 
 const TodoViewModel = () => {

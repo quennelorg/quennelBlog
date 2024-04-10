@@ -1,4 +1,4 @@
-import { APITYPE } from '@site/src/components/KeyFeature/KeyModel';
+import { APITYPE } from '@site/src/components/keyFeature/KeyModel';
 
 const isGeoKey = (type: string) => {
 	return Number(type) === APITYPE.geo;

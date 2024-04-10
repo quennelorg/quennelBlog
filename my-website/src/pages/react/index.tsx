@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import WeatherFeature from '@site/src/components/WeatherFeature/main';
+import WeatherFeature from '@site/src/components/weatherFeature/main';
 
 export default function MyReactPage(): JSX.Element {
 	return (

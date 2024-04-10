@@ -6,8 +6,8 @@ import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import UpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { SxProps } from '@mui/system';
-import { getGeoKey, getWeatherKey } from '@site/src/components/KeyFeature/KeyViewModel';
-import { TabPanelProps, a11yProps, fabGreenStyle, fabStyle } from '@site/src/components/KeyFeature/KeyModel';
+import { getGeoKey, getWeatherKey } from '@site/src/components/keyFeature/KeyViewModel';
+import { TabPanelProps, a11yProps, fabGreenStyle, fabStyle } from '@site/src/components/keyFeature/KeyModel';
 
 const KeyBar = ({ list, handleClickOpen }) => {
 	const geoKeyList = getGeoKey(list);

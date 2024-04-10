@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertCategoryMapping, AlertType } from '@site/src/components/TodoFeature/TodoModel';
+import { AlertCategoryMapping, AlertType } from '@site/src/components/todoFeature/TodoModel';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 const AlertComponent = ({ alertContent, removeAlert }) => {

@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import AddKeyDialog from '@site/src/components/KeyFeature/AddKeyDialog';
+import AddKeyDialog from '@site/src/components/keyFeature/AddKeyDialog';
 import useLocalStorage from '@site/src/hooks/useLocalStorage';
-import KeyBar from '@site/src/components/KeyFeature/KeyBar';
-import { key } from '@site/src/components/KeyFeature/KeyModel';
+import KeyBar from '@site/src/components/keyFeature/KeyBar';
+import { key } from '@site/src/components/keyFeature/KeyModel';
 import Button from '@mui/material/Button';
 
 const KeyFeature = () => {
