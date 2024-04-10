@@ -1,10 +1,11 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import AddKeyDialog from '@site/src/components/keyFeature/AddKeyDialog';
+import AddKeyDialog from '@site/src/components/keyFeature/viewController/AddKeyDialog';
 import useLocalStorage from '@site/src/hooks/useLocalStorage';
-import KeyBar from '@site/src/components/keyFeature/KeyBar';
+import KeyBar from '@site/src/components/keyFeature/viewController/KeyBar';
 import { key } from '@site/src/components/keyFeature/KeyModel';
 import Button from '@mui/material/Button';
+import { fetchCities } from '@site/src/components/service/geo/geoService';
 
 const KeyFeature = () => {
 	const [open, setOpen] = React.useState(false);
@@ -25,6 +26,7 @@ const KeyFeature = () => {
 		const key = formJson.keyId;
 		console.log(formJson);
 		setOpen(false);
+		fetchCities(key);
 		addList({ name: formJson.keyName, id: formJson.keyId, type: Number(formJson.APITYPE) });
 	};
 	const addList = (key: key) => {
