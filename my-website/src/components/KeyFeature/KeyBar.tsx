@@ -9,7 +9,7 @@ import { SxProps } from '@mui/system';
 import { getGeoKey, getWeatherKey } from '@site/src/components/KeyFeature/KeyViewModel';
 import { TabPanelProps, a11yProps, fabGreenStyle, fabStyle } from '@site/src/components/KeyFeature/KeyModel';
 
-const KeyBar = ({ list }) => {
+const KeyBar = ({ list, handleClickOpen }) => {
 	const geoKeyList = getGeoKey(list);
 	const weatherKeyList = getWeatherKey(list);
 	const theme = useTheme();
@@ -65,7 +65,7 @@ const KeyBar = ({ list }) => {
 					}}
 					unmountOnExit
 				>
-					<Fab sx={fab.sx} aria-label={fab.label} color={fab.color}>
+					<Fab sx={fab.sx} aria-label={fab.label} color={fab.color} onClick={handleClickOpen}>
 						{fab.icon}
 					</Fab>
 				</Zoom>

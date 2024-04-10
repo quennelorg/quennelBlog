@@ -4,6 +4,7 @@ import AddKeyDialog from '@site/src/components/KeyFeature/AddKeyDialog';
 import useLocalStorage from '@site/src/hooks/useLocalStorage';
 import KeyBar from '@site/src/components/KeyFeature/KeyBar';
 import { key } from '@site/src/components/KeyFeature/KeyModel';
+import Button from '@mui/material/Button';
 
 const KeyFeature = () => {
 	const [open, setOpen] = React.useState(false);
@@ -29,10 +30,17 @@ const KeyFeature = () => {
 	const addList = (key: key) => {
 		setList([...list, key]);
 	};
+	const handleRemove = (e) => {
+		e.preventDefault();
+		setList([]);
+	};
 	return (
 		<Box>
-			<AddKeyDialog open={open} handleClickOpen={handleClickOpen} handleClose={handleClose} handleSubmit={handleSubmit} />
-			<KeyBar list={list} />
+			<Button variant="outlined" onClick={handleRemove}>
+				清除你的key
+			</Button>
+			<AddKeyDialog open={open} handleClose={handleClose} handleSubmit={handleSubmit} />
+			<KeyBar list={list} handleClickOpen={handleClickOpen} />
 		</Box>
 	);
 };
