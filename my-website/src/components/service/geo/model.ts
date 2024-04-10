@@ -11,7 +11,7 @@ export const getGeoCityUrlOptions = (key: string, input?: string) => {
 		params: {
 			countryIds: 'CN',
 			namePrefix: input ?? 'wuhan',
-			maxPopulation: '1000000',
+			minPopulation: '1000000',
 			limit: '10',
 			sort: 'population',
 		},

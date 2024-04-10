@@ -12,6 +12,13 @@ export enum APITYPE {
 	weather = 1,
 }
 
+export enum DIALOGTITLE {
+	success = '恭喜你，你已经成功注册你的key！',
+	fail = 'key有问题，请重新填写',
+	test = '正在测试你的API Key, 不要着急',
+	edit = '填写框',
+}
+
 export interface TabPanelProps {
 	children?: React.ReactNode;
 	dir?: string;
