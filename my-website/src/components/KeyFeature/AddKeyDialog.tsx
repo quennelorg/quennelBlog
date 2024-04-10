@@ -9,15 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 import { APITYPE } from '@site/src/components/KeyFeature/KeyModel';
 
-const AddKeyDialog = ({ open, setOpen, handleSubmit }) => {
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
-
-	const handleClose = () => {
-		setOpen(false);
-	};
-
+const AddKeyDialog = ({ open, handleClickOpen, handleClose, handleSubmit }) => {
 	return (
 		<React.Fragment>
 			<Button variant="outlined" onClick={handleClickOpen}>
