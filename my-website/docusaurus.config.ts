@@ -161,15 +161,11 @@ const config: Config = {
 					],
 				},
 				{
-					title: 'Community',
+					title: 'Feature',
 					items: [
 						{
-							label: 'Stack Overflow',
-							href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-						},
-						{
-							label: 'Discord',
-							href: 'https://discordapp.com/invite/docusaurus',
+							label: 'Blog',
+							href: '/blog',
 						},
 						{
 							label: 'Twitter',
@@ -183,6 +179,10 @@ const config: Config = {
 						{
 							label: 'Todo',
 							to: '/todo/home',
+						},
+						{
+							label: 'Key',
+							to: '/key',
 						},
 					],
 				},
