@@ -167,10 +167,6 @@ const config: Config = {
 							label: 'Blog',
 							href: '/blog',
 						},
-						{
-							label: 'Twitter',
-							href: 'https://twitter.com/docusaurus',
-						},
 					],
 				},
 				{
@@ -184,14 +180,26 @@ const config: Config = {
 							label: 'Key',
 							to: '/key',
 						},
-					],
-				},
-				{
-					title: 'More',
-					items: [
 						{
 							label: 'GitHub',
 							href: 'https://github.com/Quennel-coder',
+						},
+					],
+				},
+				{
+					title: 'Community',
+					items: [
+						{
+							label: 'Refactoring2',
+							href: 'https://book-refactoring2.ifmicro.com/docs/',
+						},
+						{
+							label: 'R2Coding',
+							href: 'https://www.r2coding.com/#/README',
+						},
+						{
+							label: 'Algorithm',
+							href: 'https://github.com/Quennel-coder/fucking-algorithm',
 						},
 					],
 				},
