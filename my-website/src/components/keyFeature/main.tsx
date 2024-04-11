@@ -1,17 +1,16 @@
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import React, { useState } from 'react';
 import AddKeyDialog from '@site/src/components/keyFeature/viewController/AddKeyDialog';
 import useLocalStorage from '@site/src/hooks/useLocalStorage';
 import KeyBar from '@site/src/components/keyFeature/viewController/KeyBar';
 import { key } from '@site/src/components/keyFeature/KeyModel';
-import Button from '@mui/material/Button';
-import { fetchCities } from '@site/src/components/service/geo/geoService';
+import config from '@site/configProxy/config';
 
 const KeyFeature = () => {
 	const [open, setOpen] = useState(false);
 	const [testing, setTesting] = useState(false);
 	const [success, setSuccess] = useState(false);
-	const [list, setList] = useLocalStorage('API_KEY_LIST', []);
+	const [list, setList] = useLocalStorage(config.API_KEY_LIST, []);
 
 	const handleClickOpen = () => {
 		setTesting(false);

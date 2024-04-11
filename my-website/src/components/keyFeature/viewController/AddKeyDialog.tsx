@@ -27,7 +27,6 @@ const AddKeyDialog = ({ open, handleClose, testing, setTesting, success, setSucc
 		setTesting(true);
 		setLoading(true);
 		getData(formJson);
-		// addList({ name: formJson.keyName, id: formJson.keyId, type: Number(formJson.APITYPE) });
 	};
 
 	const getData = (formJson: any) => {

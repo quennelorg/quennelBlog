@@ -12,6 +12,7 @@ import { useColorMode } from '@docusaurus/theme-common';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import useLocalStorage from '@site/src/hooks/useLocalStorage';
 import CustomizeInput from '@site/src/components/common/input';
+import config from '@site/configProxy/config';
 
 const TodoFeature = () => {
 	const { colorMode, setColorMode } = useColorMode();
@@ -23,7 +24,7 @@ const TodoFeature = () => {
 	});
 	const [taskName, setTaskName] = useState('');
 	const [taskType, setTaskType] = useState<TaskType>(TaskType.normal);
-	const [list, setList] = useLocalStorage('list', []);
+	const [list, setList] = useLocalStorage(config.TODO_LIST, []);
 	const [isEditing, setIsEditing] = useState(false);
 	const [editId, setEditId] = useState(null);
 	const [alert, setAlert] = useState<Alert>({ showAlert: false });

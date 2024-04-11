@@ -1,12 +1,9 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import CircularProgress from '@mui/material/CircularProgress';
+import { Box, Fab, CircularProgress } from '@mui/material';
 import { green } from '@mui/material/colors';
-import Fab from '@mui/material/Fab';
 import CheckIcon from '@mui/icons-material/Check';
 import SaveIcon from '@mui/icons-material/Save';
 import WarningIcon from '@mui/icons-material/Warning';
-import { useState } from 'react';
 
 const LoadingView = ({ loading, success, handleButtonClick }) => {
 	const buttonSx = {
