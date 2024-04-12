@@ -35,3 +35,13 @@ Axios 是一个基于 Promise 的 Node.js 和浏览器 HTTP 客户端
 ## API
 ### [GeoDB](http://geodb-cities-api.wirefreethought.com/)
 ### [OpenWeather](https://openweathermap.org/api)
+
+## Useful Resource
+### css
+#### [FLEXBOX FROGGY](https://flexboxfroggy.com/)
+#### [cssanimation](https://cssanimation.io/)
+#### [GRID GARDEN](https://cssgridgarden.com/)
+#### [CSS Diner](https://flukeout.github.io/)
+### Thought
+#### [JS Robot](https://lab.reaal.me/jsrobot/)
+#### [Learning Git Branch](https://learngitbranching.js.org/)
