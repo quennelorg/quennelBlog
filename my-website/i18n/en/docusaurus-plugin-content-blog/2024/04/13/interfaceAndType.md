@@ -114,7 +114,7 @@ let record: Record<string, string> = {};
 record = exampleInterface // good
 record = exampleType // Index signature is missing
 ```
-Record<string, string> is equivalent to { [key: string]: string }. Subsets can only be assigned to the index signature type when all properties of that type are known and can be checked against the index signature. In your example, everything from exampleType to Record<string, string> is assignable. This check can only be done for object literal types, as once object literal types are declared, they cannot be changed. Hence, the index signature is known.
+`Record<string, string>` is equivalent to `{ [key: string]: string }`. Subsets can only be assigned to the index signature type when all properties of that type are known and can be checked against the index signature. In your example, everything from exampleType to `Record<string, string>` is assignable. This check can only be done for object literal types, as once object literal types are declared, they cannot be changed. Hence, the index signature is known.
 
 参考资料：
 https://www.51cto.com/article/705857.html

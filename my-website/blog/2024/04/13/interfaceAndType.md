@@ -112,7 +112,7 @@ let record: Record<string, string> = {};
 record = exampleInterface // good
 record = exampleType // Index signature is missing
 ```
-Record<string,string>与{[key:string]：string}相同。只有当该类型的所有属性都已知并且可以对照该索引签名进行检查时，才允许将子集分配给该索引签名类型。在您的例子中，从exampleType到Record<string,string>的所有内容都是可分配的。这只能针对对象字面量类型进行检查，因为一旦声明了对象字面量类型，就无法更改它们。因此，索引签名是已知的
+`Record<string,string>`与`{[key:string]：string}`相同。只有当该类型的所有属性都已知并且可以对照该索引签名进行检查时，才允许将子集分配给该索引签名类型。在您的例子中，从exampleType到`Record<string,string>`的所有内容都是可分配的。这只能针对对象字面量类型进行检查，因为一旦声明了对象字面量类型，就无法更改它们。因此，索引签名是已知的
 
 
 参考资料：
