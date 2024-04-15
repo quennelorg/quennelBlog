@@ -30,3 +30,8 @@ tags: [DesignModel, simpleFactory]
 换句大白话说，也就是我们通过封装和继承已经能够将功能拆分的很细  
 现在我们如果将这些细的功能合并成一个业务，那么可以通过一个工厂类，提供一个参数作为获取小功能的实例对象  
 这样，无论是增加新功能还是修改原有功能，都会很方便，而且不会对老功能有影响
+
+### 拓展
+看到有个例子很有趣，在这做个记录：
+
+https://github.com/quennelorg/designModelTraining/tree/main/app/src/main/java/simpleFactory/car
