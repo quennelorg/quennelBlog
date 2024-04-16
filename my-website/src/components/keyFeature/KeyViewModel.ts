@@ -1,4 +1,7 @@
 import { APITYPE, key } from '@site/src/components/keyFeature/KeyModel';
+import config from '@site/configProxy/config';
+import { getLocalStorageByKey } from '@site/src/hooks/useLocalStorage';
+import _ from 'lodash';
 
 const isGeoKey = (type: string) => {
 	return Number(type) === APITYPE.geo;
@@ -15,7 +18,8 @@ export const getWeatherKey = (list) => {
 	return list.filter((key) => isWeatherKey(key.type));
 };
 
-export const getApiKey = (list: [], type: APITYPE, name?: '') => {
+export const getApiKey = (type: APITYPE, name?: '') => {
+	const list = getLocalStorageByKey(config.API_KEY_LIST);
 	switch (type) {
 		case APITYPE.geo:
 			return getApiKeyIdByName(getGeoKey(list), name);
@@ -26,5 +30,8 @@ export const getApiKey = (list: [], type: APITYPE, name?: '') => {
 };
 
 const getApiKeyIdByName = (list: key[], name?: '') => {
-	return list.find((key) => key.name === (name ?? 'quennel1115')).id ?? '';
+	if (name) {
+		return list.find((key) => key.name === (name ?? 'quennel1115')).id ?? '';
+	}
+	return _.get(list[0], 'id', '');
 };
