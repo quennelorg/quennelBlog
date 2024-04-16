@@ -1,7 +1,7 @@
 import { Autocomplete, Box, Grid, TextField, Typography } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import parse from 'autosuggest-highlight/parse';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { PlaceType } from '@site/src/components/address/model';
 import { getCityAddress } from '@site/src/components/address/viewModel';
 import { debounce } from '@mui/material/utils';
@@ -14,11 +14,10 @@ const AddressInput = () => {
 	const [options, setOptions] = useState<readonly PlaceType[]>([]);
 	const apiKey = getApiKey(APITYPE.geo);
 
-	const fetch = useMemo(
-		() =>
-			debounce((request: { input: string; key: string }, callback: (results?: readonly PlaceType[]) => void) => {
-				getCityAddress(request, callback);
-			}, 600),
+	const fetch = useCallback(
+		debounce((request: { input: string; key: string }, callback: (results?: readonly PlaceType[]) => void) => {
+			getCityAddress(request, callback);
+		}, 600),
 		[],
 	);
 
