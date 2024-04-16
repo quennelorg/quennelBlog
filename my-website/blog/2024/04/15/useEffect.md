@@ -2,7 +2,7 @@
 slug: useEffect
 title: useEffect常见问题记录1
 authors: quennel
-tags: [typeScript, useEffect, hook]
+tags: [react, useEffect, hook]
 date: 2024-04-15T16:50
 ---
 

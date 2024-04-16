@@ -2,7 +2,7 @@
 slug: useEffect
 title: useEffect Frequent QA1
 authors: quennel
-tags: [typeScript, useEffect, hook]
+tags: [react, useEffect, hook]
 date: 2024-04-15T16:50
 ---
 
