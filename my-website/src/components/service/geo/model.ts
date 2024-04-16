@@ -13,7 +13,7 @@ export const getGeoCityUrlOptions = (key: string, input?: string) => {
 			namePrefix: input ?? 'wuhan',
 			minPopulation: '1000000',
 			limit: '10',
-			sort: 'population',
+			sort: '-population',
 		},
 	};
 };

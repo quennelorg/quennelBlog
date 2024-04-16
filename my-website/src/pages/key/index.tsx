@@ -1,8 +1,8 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import WeatherFeature from '@site/src/components/weatherFeature/main';
 import KeyFeature from '@site/src/components/keyFeature/main';
 import { Typography } from '@mui/material';
+import AddressInput from '@site/src/components/address/AddressInput';
 
 export default function KeyManagement(): JSX.Element {
 	return (
@@ -11,6 +11,7 @@ export default function KeyManagement(): JSX.Element {
 				Manage your key
 			</Typography>
 			<KeyFeature />
+			<AddressInput />
 		</Layout>
 	);
 }
