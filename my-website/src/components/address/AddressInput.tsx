@@ -1,7 +1,7 @@
 import { Autocomplete, Box, Grid, TextField, Typography } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import parse from 'autosuggest-highlight/parse';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { PlaceType } from '@site/src/components/address/model';
 import { getCityAddress } from '@site/src/components/address/viewModel';
 import { debounce } from '@mui/material/utils';
