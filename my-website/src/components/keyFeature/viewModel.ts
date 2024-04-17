@@ -1,4 +1,4 @@
-import { APITYPE, key } from '@site/src/components/keyFeature/model';
+import { APITYPE, Key } from '@site/src/components/keyFeature/model';
 import config from '@site/configProxy/config';
 import { getLocalStorageByKey } from '@site/src/hooks/useLocalStorage';
 import _ from 'lodash';
@@ -29,9 +29,11 @@ export const getApiKey = (type: APITYPE, name?: '') => {
 	return '';
 };
 
-const getApiKeyIdByName = (list: key[], name?: '') => {
+const getApiKeyIdByName = (list: Key[], name?: '') => {
 	if (name) {
 		return list.find((key) => key.name === (name ?? 'quennel1115')).id ?? '';
 	}
 	return _.get(list[0], 'id', '');
 };
+
+export const fetchData = () => {};

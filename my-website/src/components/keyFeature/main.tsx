@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import AddKeyDialog from '@site/src/components/keyFeature/viewController/AddKeyDialog';
 import useLocalStorage from '@site/src/hooks/useLocalStorage';
 import KeyBar from '@site/src/components/keyFeature/viewController/KeyBar';
-import { key } from '@site/src/components/keyFeature/model';
+import { Key } from '@site/src/components/keyFeature/model';
 import config from '@site/configProxy/config';
 
 const KeyFeature = () => {
@@ -22,7 +22,7 @@ const KeyFeature = () => {
 		setOpen(false);
 	};
 
-	const addList = (key: key) => {
+	const addList = (key: Key) => {
 		setList([...list, key]);
 	};
 	const handleRemove = (e) => {

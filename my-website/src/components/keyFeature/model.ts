@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { green } from '@mui/material/colors';
 
-export interface key {
+export interface Key {
 	name: string;
 	id: string;
 	type: APITYPE;
