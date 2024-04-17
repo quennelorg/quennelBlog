@@ -15,6 +15,8 @@ const transferCityDataToPlaceType = (cities: CityType[], inputValue: string): Pl
 					secondary_text: city.region,
 					main_text_matched_substrings: [{ offset: 0, length: inputValue.length }],
 				},
+				latitude: city.latitude,
+				longitude: city.longitude,
 			};
 		});
 	} catch (e) {
