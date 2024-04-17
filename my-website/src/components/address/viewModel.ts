@@ -1,6 +1,7 @@
-import { CityType, PlaceType } from '@site/src/components/address/model';
+import { PlaceType } from '@site/src/components/address/model';
 import _ from 'lodash';
 import { fetchCities } from '@site/src/components/service/geo/geoService';
+import { CityType } from '@site/src/components/service/geo/model';
 
 const transferCityDataToPlaceType = (cities: CityType[], inputValue: string): PlaceType[] => {
 	if (!cities || cities.length === 0) {

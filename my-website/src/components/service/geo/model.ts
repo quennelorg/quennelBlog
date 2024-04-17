@@ -1,9 +1,9 @@
-const geo_city_url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
+import config from '@site/configProxy/config';
 
 export const getGeoCityUrlOptions = (key: string, input?: string) => {
 	return {
 		method: 'GET',
-		url: geo_city_url,
+		url: config.GEO_API_URL,
 		headers: {
 			'X-RapidAPI-Key': key,
 			'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com',
@@ -17,3 +17,19 @@ export const getGeoCityUrlOptions = (key: string, input?: string) => {
 		},
 	};
 };
+
+export interface CityType {
+	city: string;
+	country: string;
+	countryCode: string;
+	id: number;
+	latitude: number;
+	longitude: number;
+	name: string;
+	population: number;
+	region: string;
+	regionCode: string;
+	regionWdId: string;
+	type: string;
+	wikiDataId: string;
+}
