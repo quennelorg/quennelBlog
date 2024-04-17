@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 
-const ForcastWeather = () => {
+const ForecastWeather = () => {
 	return <Box> 这是预测天气 </Box>;
 };
-export default ForcastWeather;
+export default ForecastWeather;

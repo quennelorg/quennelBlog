@@ -4,7 +4,7 @@ import React from 'react';
 import CitySearch from '@site/src/components/weatherFeature/viewController/CitySearch';
 import ClockTool from '@site/src/components/weatherFeature/viewController/ClockTool';
 import CurrentWeather from '@site/src/components/weatherFeature/viewController/CurrentWeather';
-import ForcastWeather from '@site/src/components/weatherFeature/viewController/ForcastWeather';
+import ForecastWeather from '@site/src/components/weatherFeature/viewController/ForecastWeather';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -34,7 +34,7 @@ const WeatherFeature = () => {
 				</Grid>
 				<Grid item xs={6}>
 					<Item>
-						<ForcastWeather />
+						<ForecastWeather />
 					</Item>
 				</Grid>
 			</Grid>
