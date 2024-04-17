@@ -31,9 +31,7 @@ export const getCityAddress = (request: any, callback: Function) => {
 		.then((res) => {
 			const results = transferCityDataToPlaceType(res.data.data, input);
 			console.log(results);
-			if (results && results.length > 0) {
-				callback(results);
-			}
+			callback(results);
 		})
 		.catch((error) => {
 			console.log(error);
