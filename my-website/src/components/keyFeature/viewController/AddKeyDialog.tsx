@@ -15,10 +15,8 @@ import {
 	TextField,
 } from '@mui/material';
 import { APITYPE, DIALOGTITLE } from '@site/src/components/keyFeature/model';
-import { fetchCities } from '@site/src/components/service/geo/geoService';
 import LoadingView from '@site/src/components/keyFeature/viewController/LoadingView';
-import { fetchCurrentWeather, fetchForecastWeather } from '@site/src/components/service/weather/weatherService';
-import { GeoLatLon } from '@site/src/components/service/weather/model';
+import { fetchData } from '@site/src/components/keyFeature/viewModel';
 
 const AddKeyDialog = ({ open, handleClose, testing, setTesting, success, setSuccess, addList }) => {
 	const [loading, setLoading] = useState(false);
@@ -34,35 +32,18 @@ const AddKeyDialog = ({ open, handleClose, testing, setTesting, success, setSucc
 	const getData = (formJson: any) => {
 		console.log(formJson);
 		const { keyId: key, keyName: name, APITYPE: type } = formJson;
-		if (type === APITYPE.geo.toString()) {
-			fetchCities(key)
-				.then((res) => {
-					console.log(res.data);
-					setSuccess(true);
-					setLoading(false);
-					addList({ name: name, id: key, type: Number(type) });
-				})
-				.catch((error) => {
-					console.log(error);
-					setLoading(false);
-					setSuccess(false);
-				});
-		}
-		if (type === APITYPE.weather.toString()) {
-			const geoLatLon: GeoLatLon = { latitude: 30.587222222, longitude: 114.288055555 };
-			fetchForecastWeather(key, geoLatLon)
-				.then((res) => {
-					console.log(res.data);
-					setSuccess(true);
-					setLoading(false);
-					addList({ name: name, id: key, type: Number(type) });
-				})
-				.catch((error) => {
-					console.log(error);
-					setLoading(false);
-					setSuccess(false);
-				});
-		}
+		fetchData({ id: key, type: Number(type), name: formJson.keyName })
+			.then((res) => {
+				console.log(res.data);
+				setSuccess(true);
+				setLoading(false);
+				addList({ name: name, id: key, type: Number(type) });
+			})
+			.catch((error) => {
+				console.log(error);
+				setLoading(false);
+				setSuccess(false);
+			});
 	};
 
 	const handleButtonClick = () => {

@@ -2,6 +2,10 @@ import { APITYPE, Key } from '@site/src/components/keyFeature/model';
 import config from '@site/configProxy/config';
 import { getLocalStorageByKey } from '@site/src/hooks/useLocalStorage';
 import _ from 'lodash';
+import { fetchCities } from '@site/src/components/service/geo/geoService';
+import { GeoLatLon } from '@site/src/components/service/weather/model';
+import { fetchForecastWeather } from '@site/src/components/service/weather/weatherService';
+import { AxiosResponse } from 'axios';
 
 const isGeoKey = (type: string) => {
 	return Number(type) === APITYPE.geo;
@@ -36,4 +40,12 @@ const getApiKeyIdByName = (list: Key[], name?: '') => {
 	return _.get(list[0], 'id', '');
 };
 
-export const fetchData = () => {};
+export const fetchData = (key: Key): Promise<AxiosResponse<any>> => {
+	if (key.type === APITYPE.geo) {
+		return fetchCities(key.id);
+	}
+	if (key.type === APITYPE.weather) {
+		const geoLatLon: GeoLatLon = { latitude: 30.587222222, longitude: 114.288055555 };
+		return fetchForecastWeather(key.id, geoLatLon);
+	}
+};
