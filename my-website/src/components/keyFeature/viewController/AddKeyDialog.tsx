@@ -14,7 +14,7 @@ import {
 	RadioGroup,
 	TextField,
 } from '@mui/material';
-import { APITYPE, DIALOGTITLE } from '@site/src/components/keyFeature/KeyModel';
+import { APITYPE, DIALOGTITLE } from '@site/src/components/keyFeature/model';
 import { fetchCities } from '@site/src/components/service/geo/geoService';
 import LoadingView from '@site/src/components/keyFeature/viewController/LoadingView';
 

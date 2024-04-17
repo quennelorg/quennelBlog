@@ -5,8 +5,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { PlaceType } from '@site/src/components/address/model';
 import { getCityAddress } from '@site/src/components/address/viewModel';
 import { debounce } from '@mui/material/utils';
-import { getApiKey } from '@site/src/components/keyFeature/KeyViewModel';
-import { APITYPE } from '@site/src/components/keyFeature/KeyModel';
+import { getApiKey } from '@site/src/components/keyFeature/viewModel';
+import { APITYPE } from '@site/src/components/keyFeature/model';
 
 const AddressInput = () => {
 	const [value, setValue] = useState<PlaceType | null>(null);

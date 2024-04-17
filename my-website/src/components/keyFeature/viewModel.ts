@@ -1,4 +1,4 @@
-import { APITYPE, key } from '@site/src/components/keyFeature/KeyModel';
+import { APITYPE, key } from '@site/src/components/keyFeature/model';
 import config from '@site/configProxy/config';
 import { getLocalStorageByKey } from '@site/src/hooks/useLocalStorage';
 import _ from 'lodash';
