@@ -35,6 +35,9 @@ Axios 是一个基于 Promise 的 Node.js 和浏览器 HTTP 客户端
 ## API
 ### [GeoDB](http://geodb-cities-api.wirefreethought.com/)
 ### [OpenWeather](https://openweathermap.org/api)
+[Weather icons](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2)
+[Current weather data](https://openweathermap.org/current)
+[5 day weather forecast](https://openweathermap.org/forecast5#data)
 
 ## Useful Resource
 ### css
