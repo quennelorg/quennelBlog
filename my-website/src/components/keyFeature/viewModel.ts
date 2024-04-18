@@ -45,7 +45,7 @@ export const fetchData = (key: Key): Promise<AxiosResponse<any>> => {
 		return fetchCities(key.id);
 	}
 	if (key.type === APITYPE.weather) {
-		const geoLatLon: GeoLatLon = { latitude: 30.587222222, longitude: 114.288055555 };
+		const geoLatLon: GeoLatLon = { latitude: config.DEFAULT_GEO.latitude, longitude: config.DEFAULT_GEO.longitude };
 		return fetchForecastWeather(key.id, geoLatLon);
 	}
 };
