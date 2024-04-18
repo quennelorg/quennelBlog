@@ -8,8 +8,7 @@ import { debounce } from '@mui/material/utils';
 import { getApiKey } from '@site/src/components/keyFeature/viewModel';
 import { APITYPE } from '@site/src/components/keyFeature/model';
 
-const AddressInput = () => {
-	const [value, setValue] = useState<PlaceType | null>(null);
+const AddressInput = ({ value, setValue }) => {
 	const [inputValue, setInputValue] = useState('');
 	const [options, setOptions] = useState<readonly PlaceType[]>([]);
 	const apiKey = getApiKey(APITYPE.geo);
