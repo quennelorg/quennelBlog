@@ -214,13 +214,14 @@ const config: Config = {
 
 	customFields: {
 		greetings: [
-			'The shortest way to do many things is to only one thing at a time ',
-			'Be cheerful and hopeful',
-			'Treat yourself well',
-			'Spend your life in your own way',
-			'It’s up to you how far you’ll go',
-			'The first step is as good as half over',
-			'Time waits for no one. Treasure every moment you have',
+			'于暴雨中行走，伞是倒划天空的船',
+			'很多人看不到未来，其实是看到了未来',
+			'怀念过去是不是在记忆的长河里刻舟求剑，展望未来是不是在前行的道路上望梅止渴',
+			'人只有醒来后才知道自己睡了一觉',
+			'敬老院的新人都是老人，这世界的大人都是小人',
+			'开关是等的日出，日落是灯的开关',
+			'我死在了昨天，因为我的一切已经又重新开始了',
+			'山是地质年代极其缓慢的浪',
 		],
 		todoTitles: ['完不成任务，就别想睡觉', '不能偷懒，不能偷懒'],
 	},
