@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box, Button, CircularProgress } from '@mui/material';
 import { green } from '@mui/material/colors';
 
-const LoadingButtonView = ({ loading, success, handleButtonClick }) => {
+const LoadingButtonView = ({ disable, loading, success, handleButtonClick }) => {
 	const buttonSx = {
 		...(success && {
 			bgcolor: green[500],
@@ -11,11 +11,11 @@ const LoadingButtonView = ({ loading, success, handleButtonClick }) => {
 			},
 		}),
 	};
-	const text = success ? '已成功获取' : '获取当前天气';
+	const text = success ? '已成功获取' : '获取天气';
 	return (
 		<Box sx={{ display: 'flex', alignItems: 'center' }}>
 			<Box sx={{ m: 1, position: 'relative' }}>
-				<Button variant="contained" sx={buttonSx} disabled={loading} onClick={handleButtonClick}>
+				<Button variant="contained" sx={buttonSx} disabled={disable || loading} onClick={handleButtonClick}>
 					{text}
 				</Button>
 				{loading && (

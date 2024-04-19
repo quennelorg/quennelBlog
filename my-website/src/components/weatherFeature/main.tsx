@@ -1,10 +1,11 @@
 import { Box, Grid, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import React from 'react';
+import React, { useState } from 'react';
 import CitySearch from '@site/src/components/weatherFeature/viewController/CitySearch';
 import ClockTool from '@site/src/components/weatherFeature/viewController/ClockTool';
 import CurrentWeather from '@site/src/components/weatherFeature/viewController/CurrentWeather';
 import ForecastWeather from '@site/src/components/weatherFeature/viewController/ForecastWeather';
+import { PlaceType } from '@site/src/components/address/model';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -14,6 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 	color: theme.palette.text.secondary,
 }));
 const WeatherFeature = () => {
+	const [currentWeatherData, setCurrentWeatherData] = useState<PlaceType | null>(null);
 	return (
 		<Box>
 			<Grid container spacing={2}>
