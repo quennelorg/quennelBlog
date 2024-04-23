@@ -1,0 +1,10 @@
+{
+  "label": "Reactive Programming",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "Reactive Programming is programming with asynchronous data streams"
+  }
+}
