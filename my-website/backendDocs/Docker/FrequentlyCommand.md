@@ -21,4 +21,45 @@ For example:
 ### `docker restart [容器ID]` 重启容器
 ### `docker rm [容器ID]` 删除容器
 
+## 常用
+### 命令批量删除状态为 Exited 的容器
+docker 启动的容器当中，经常有一些退出的容器，既然没有用了，就需要批量清理一下。
+```shell
+docker rm $(docker ps -q -f status=exited)
+```
+利用 docker ps -f 选项可以找到 exited 的容器 -q 只显示容器 id 
 
+### find dockers images
+```shell
+docker images
+docker image ls
+```
+
+### remove all unused images
+```shell
+docker image prune
+```
+
+### remove specific image
+```shell
+// remove specific image by name or id
+docker image rm <image_name> <image_id>
+
+// 如果正在使用 则用 -f flag
+docker image rm <image_name> -f
+
+// 有一个简短的命令 rmi
+docker rmi <image_name> <image_id>
+
+// Remove a Specific Image by Name and Tag
+docker rmi <image_name>:<tag>
+
+// Remove Images From a Remote Repository
+docker rmi my_repo/my_image_tag
+docker rmi my_repo/image_tag_1 my_repo/image_tag_2 my_repo/image_tag_3
+```
+
+
+### 参考资源
+https://yeasy.gitbook.io/docker_practice/image/rm
+[Remove Docker Images, Volumes, and Containers in Seconds](https://kinsta.com/blog/docker-remove-images/)

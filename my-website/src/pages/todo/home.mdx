@@ -78,3 +78,27 @@ import TodoFeature from "../../components/todoFeature/main";
 - [ ] **熟悉《重构：改善既有代码的设计》这本经典著作，理解Martin Fowler提出的重构原则**
 - [ ] **熟练使用docker部署**
 - [x] **搭建自己的wiki，并且将学习记录上传上去**
+
+
+## 遇到的问题记录
+### MongoDB: No server chosen by ReadPreferenceServerSelector
+将springboot到放到docker里，然后ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]，连接出错，如果将localhost改成远程的地址则没有问题
+https://stackoverflow.com/questions/29718933/mongodb-no-server-chosen-by-readpreferenceserverselector
+
+### WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+docker 拉的镜像是 linux amd64， m1芯片是arm64
+https://dev.to/docker/run-x86-containers-on-apple-mac-m1-with-rosetta-2-417a
+
+### When using COPY with more than one source file, the destination must be a directory and end with a /
+https://stackoverflow.com/questions/53650492/when-using-copy-with-more-than-one-source-file-the-destination-must-be-a-direct
+https://stackoverflow.com/questions/53650492/when-using-copy-with-more-than-one-source-file-the-destination-must-be-a-direct
+### no main manifest attribute, in /app.jar
+https://blog.csdn.net/csdnzyb/article/details/115378818
+https://blog.csdn.net/weixin_67793092/article/details/136577417
+应该使用 clean bootJar，build的文件有两个jar，这两个jar就会导致找不到哪一个，然后copy的时候就copy空的，copy空的话，执行的时候就是找不到主类
+### dockerfile gradle springboot
+https://medium.com/@m22kats/create-a-docker-container-using-the-dockerfile-for-a-java-application-built-with-gradle-715ac17cce40
+https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
+https://github.com/lizhifuabc/spring-boot-gradle
+https://blog.csdn.net/wangxudongx/article/details/106982201
+https://cloud.tencent.com/developer/article/1597841
