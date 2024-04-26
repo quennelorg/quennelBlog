@@ -82,20 +82,11 @@ import TodoFeature from "../../components/todoFeature/main";
 
 ## 遇到的问题记录
 ### MongoDB: No server chosen by ReadPreferenceServerSelector
-将springboot到放到docker里，然后ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]，连接出错，如果将localhost改成远程的地址则没有问题
+mongodb 也在docker
+将springboot到放到docker里，然后`ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]`，连接出错，如果将localhost改成远程的地址则没有问题
 https://stackoverflow.com/questions/29718933/mongodb-no-server-chosen-by-readpreferenceserverselector
 
-### WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
-docker 拉的镜像是 linux amd64， m1芯片是arm64
-https://dev.to/docker/run-x86-containers-on-apple-mac-m1-with-rosetta-2-417a
 
-### When using COPY with more than one source file, the destination must be a directory and end with a /
-https://stackoverflow.com/questions/53650492/when-using-copy-with-more-than-one-source-file-the-destination-must-be-a-direct
-https://stackoverflow.com/questions/53650492/when-using-copy-with-more-than-one-source-file-the-destination-must-be-a-direct
-### no main manifest attribute, in /app.jar
-https://blog.csdn.net/csdnzyb/article/details/115378818
-https://blog.csdn.net/weixin_67793092/article/details/136577417
-应该使用 clean bootJar，build的文件有两个jar，这两个jar就会导致找不到哪一个，然后copy的时候就copy空的，copy空的话，执行的时候就是找不到主类
 ### dockerfile gradle springboot
 https://medium.com/@m22kats/create-a-docker-container-using-the-dockerfile-for-a-java-application-built-with-gradle-715ac17cce40
 https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
@@ -110,13 +101,7 @@ https://www.youtube.com/watch?v=reKPCV5y0l4&ab_channel=codeonedigest
 https://www.youtube.com/watch?v=gsfKVa2-GtI&ab_channel=PeaceOfCode
 https://www.cnblogs.com/larrydpk/p/13247127.html
 
-### exec /opt/openjdk-17/bin/java: exec format error
-主机arm，docker java17包 amd64，build之后是amd64，ecs得选择x86_64
-https://stackoverflow.com/questions/65456814/docker-apple-silicon-m1-preview-mysql-no-matching-manifest-for-linux-arm64-v8
-https://stackoverflow.com/questions/75089403/docker-exec-usr-local-openjdk-11-bin-java-exec-format-error
-https://waytohksharma.medium.com/exec-usr-local-openjdk-11-bin-java-exec-format-1b68effb2446
-https://stackoverflow.com/questions/69054921/docker-on-mac-m1-gives-the-requested-images-platform-linux-amd64-does-not-m
-https://medium.com/block-imperium-games/exec-format-error-or-how-macs-m1s-docker-images-and-aws-ecs-eks-conspired-to-waste-a-weekend-6fcd2ea063d1
+
 
 ### docker springboot gradle
 https://www.youtube.com/watch?v=g0QCZSzEqCY
@@ -132,3 +117,13 @@ https://www.linkedin.cn/incareer/pulse/how-deploy-spring-boot-application-aws-ec
 https://stackoverflow.com/questions/49199804/how-many-subnets-can-we-add-to-aws-vpc-with-different-cidr-blocks
 https://www.emengweb.com/c/PVE
 https://medium.com/@chihsuan/aws-ec2-container-service-%E6%A6%82%E5%BF%B5%E8%88%87%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%B4%B9-28258247947a#:~:text=Task%EF%BC%9A%E4%B8%80%E8%88%AC%E6%88%91%E5%80%91%E9%80%9A%E5%B8%B8%E5%8F%AA,%E6%8F%90%E4%BE%9B%E8%87%AA%E5%8B%95%E9%87%8D%E5%95%9F%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82
+
+
+
+https://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http
+https://www.optimistic-closures.com/how-to-fix-onchange-of-perform-deprecated-in-ios-17-0-warnings/
+https://www.hangge.com/blog/cache/detail_2182.html
+https://blog.liboliu.com/a/143
+https://blog.liboliu.com/a/142
+
+
