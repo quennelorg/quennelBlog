@@ -34,10 +34,11 @@ Colima 是一款工具，可以轻松在 macOS 和 Linux 上运行 Docker 容器
 
 也可以去docker镜像里面去看`docker exec -it mongo mongosh`
 
-如果没问题，则给这个docker打tag，并push到dockerhub [PushToHub](backendDocs/Docker/PushToHub)
+如果没问题，则给这个docker打tag，并push到dockerhub [PushToHub](/backendDocs/Docker/PushToHub)
 
 ### JAVA 镜像
 #### dockerfile
+[Dockerfile for Java built with Gradle](/backendDocs/Docker/DockerfileInJava)
 在项目下：
 ```dockerfile title="Dockerfile"
 FROM openjdk:17-jdk-alpine
@@ -97,22 +98,54 @@ VPC
 [https://www.huaweicloud.com/zhishi/1584598122547.html](https://www.huaweicloud.com/zhishi/1584598122547.html)
 [AWS ECS、EC2、EKS 和 Fargate 之间的关系](https://blog.csdn.net/winfield821/article/details/135387756)
 [白皮书：Amazon EC2 Container Service（ECS）上的微服务架构（下篇）](https://aws.amazon.com/cn/blogs/china/microservices-on-amazon-ecs-2/)
+[AWS EC2 Container Service 概念與使用介紹](https://medium.com/@chihsuan/aws-ec2-container-service-%E6%A6%82%E5%BF%B5%E8%88%87%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%B4%B9-28258247947a#:~:text=Task%EF%BC%9A%E4%B8%80%E8%88%AC%E6%88%91%E5%80%91%E9%80%9A%E5%B8%B8%E5%8F%AA,%E6%8F%90%E4%BE%9B%E8%87%AA%E5%8B%95%E9%87%8D%E5%95%9F%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82)
+
 
 ### 创建Clusters
 [Amazon ECS Clusters](https://docs.aws.amazon.com/zh_cn/AmazonECS/latest/developerguide/clusters.html)
 ### 创建Task definitions
 ### 跑Task 创建 Service
 在跑Task之前，要去创建VPC
+[How many subnets can we add to aws VPC with different CIDR blocks](https://stackoverflow.com/questions/49199804/how-many-subnets-can-we-add-to-aws-vpc-with-different-cidr-blocks)
 成功之后就可以跑起来了
 
 
 ### EC2
 [how-deploy-spring-boot-application-aws-ec2](https://www.linkedin.com/pulse/how-deploy-spring-boot-application-aws-ec2-3-rakesh-reddy-kjiwc/)
 
-QA
+### QA
 
-WARNING: The requested image's platform linux/amd64 does not match the detected host platform linux/arm64/v8 and no specific platform was requested
+#### WARNING: The requested image's platform linux/amd64 does not match the detected host platform linux/arm64/v8 and no specific platform was requested
 
 docker 拉的镜像是 linux amd64， m1芯片是arm64
 
 [WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8)](https://dev.to/docker/run-x86-containers-on-apple-mac-m1-with-rosetta-2-417a)
+
+#### MongoDB: No server chosen by ReadPreferenceServerSelector
+mongodb 也在docker
+将springboot到放到docker里，然后`ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]`，连接出错，如果将localhost改成远程的地址则没有问题
+https://stackoverflow.com/questions/29718933/mongodb-no-server-chosen-by-readpreferenceserverselector
+
+[SpringBoot in Docker not connecting to Mongo in Docker](https://stackoverflow.com/questions/56938511/springboot-in-docker-not-connecting-to-mongo-in-docker)
+
+[Springboot整合MongoDB的Docker开发，其它应用也类似](https://www.cnblogs.com/larrydpk/p/13247127.html)
+
+
+
+## 优秀资源
+### Spring Boot MongoDB Docker Gradle
+[Spring Boot MongoDB Docker Example](https://frugalisminds.com/spring-boot-mongodb-docker-example/)
+
+[Deploy Spring Boot application and MongoDB as Containers Using Docker](https://chanakambkarunarathna.medium.com/deploy-spring-boot-application-and-mongodb-as-containers-using-docker-5e38c687525b)
+
+[Get started with Spring Boot, MongoDB and Docker Compose](https://sfmohassel.medium.com/get-started-with-spring-boot-mongodb-and-docker-compose-cfae8283ed1b)
+
+[Spring Boot – Creating docker image using Gradle](https://www.geeksforgeeks.org/spring-boot-creating-docker-image-using-gradle/)
+
+
+### springboot mongo es2 or ecs youtube
+[Spring Boot Microservice with Mongo Database on AWS EC2](https://www.youtube.com/watch?v=79Vn8A907ZA&ab_channel=TechnoTownTechie)
+
+[AWS ECS Setup | Run Springboot Microservice & MongoDB in Elastic Container Service ECS](https://www.youtube.com/watch?v=reKPCV5y0l4)
+
+[Master ECS | Docker on AWS | Live Project Based | Deploy Microservice on ECS | AWS](https://www.youtube.com/watch?v=gsfKVa2-GtI&ab_channel=PeaceOfCode)
