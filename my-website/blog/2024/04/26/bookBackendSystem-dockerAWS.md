@@ -112,6 +112,7 @@ VPC
 
 ### EC2
 [how-deploy-spring-boot-application-aws-ec2](https://www.linkedin.com/pulse/how-deploy-spring-boot-application-aws-ec2-3-rakesh-reddy-kjiwc/)
+[Deploying a Spring Boot Application on AWS with Docker](https://medium.com/@rosuth/deploying-a-spring-boot-application-on-aws-with-docker-e065ab3ab501)
 
 ### QA
 
@@ -124,7 +125,6 @@ docker 拉的镜像是 linux amd64， m1芯片是arm64
 #### MongoDB: No server chosen by ReadPreferenceServerSelector
 mongodb 也在docker
 将springboot到放到docker里，然后`ServerDescription{address=localhost:27017, type=UNKNOWN, state=CONNECTING}]`，连接出错，如果将localhost改成远程的地址则没有问题
-https://stackoverflow.com/questions/29718933/mongodb-no-server-chosen-by-readpreferenceserverselector
 
 [SpringBoot in Docker not connecting to Mongo in Docker](https://stackoverflow.com/questions/56938511/springboot-in-docker-not-connecting-to-mongo-in-docker)
 
@@ -141,6 +141,8 @@ https://stackoverflow.com/questions/29718933/mongodb-no-server-chosen-by-readpre
 [Get started with Spring Boot, MongoDB and Docker Compose](https://sfmohassel.medium.com/get-started-with-spring-boot-mongodb-and-docker-compose-cfae8283ed1b)
 
 [Spring Boot – Creating docker image using Gradle](https://www.geeksforgeeks.org/spring-boot-creating-docker-image-using-gradle/)
+
+[MongoDB Passwordless Authentication : Spring Boot App in ECS](https://contact-rajeshvinayagam.medium.com/mongodb-passwordless-authentication-spring-boot-app-in-ecs-8c55079d63bd)
 
 
 ### springboot mongo es2 or ecs youtube
