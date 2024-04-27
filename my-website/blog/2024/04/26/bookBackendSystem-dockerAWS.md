@@ -94,24 +94,39 @@ ECS Docker容器管理服务
 VPC
 虚拟私有云 (VPC) 是专用于您的 AWS 账户的虚拟网络。它在逻辑上与 AWS 云中的其他虚拟网络隔离。您可以为VPC指定IP地址范围、添加子网、添加网关、关联安全组等。子网是 VPC 中的一系列 IP 地址。
 [ Virtual Private Cloud](https://aws.amazon.com/cn/vpc/)
+
 [什么是 Amazon Elastic Container Service？](https://docs.aws.amazon.com/zh_cn/AmazonECS/latest/developerguide/Welcome.html)
+
 [https://www.huaweicloud.com/zhishi/1584598122547.html](https://www.huaweicloud.com/zhishi/1584598122547.html)
+
 [AWS ECS、EC2、EKS 和 Fargate 之间的关系](https://blog.csdn.net/winfield821/article/details/135387756)
+
 [白皮书：Amazon EC2 Container Service（ECS）上的微服务架构（下篇）](https://aws.amazon.com/cn/blogs/china/microservices-on-amazon-ecs-2/)
+
 [AWS EC2 Container Service 概念與使用介紹](https://medium.com/@chihsuan/aws-ec2-container-service-%E6%A6%82%E5%BF%B5%E8%88%87%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%B4%B9-28258247947a#:~:text=Task%EF%BC%9A%E4%B8%80%E8%88%AC%E6%88%91%E5%80%91%E9%80%9A%E5%B8%B8%E5%8F%AA,%E6%8F%90%E4%BE%9B%E8%87%AA%E5%8B%95%E9%87%8D%E5%95%9F%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82)
 
 
 ### 创建Clusters
 [Amazon ECS Clusters](https://docs.aws.amazon.com/zh_cn/AmazonECS/latest/developerguide/clusters.html)
 ### 创建Task definitions
+#### 选对平台 amd64 是x86 Inter or amd；arm64是m1
+#### 容器配置，port mapping
+- 容器地址 填写 dockerhub里的地址 `docker pull your-docker-name:tag` 这里 `your-docker-name:tag` 就是地址
+- port mapping 将需要的端口对应暴露出去，比如 `8080，27017`
+![img_2.png](img_2.png)
 ### 跑Task 创建 Service
 在跑Task之前，要去创建VPC
+
+一定要忘记添加Security group rule，将不同的端口暴露出去 `8080，27017`
+![img_1.png](img_1.png)
 [How many subnets can we add to aws VPC with different CIDR blocks](https://stackoverflow.com/questions/49199804/how-many-subnets-can-we-add-to-aws-vpc-with-different-cidr-blocks)
+
 成功之后就可以跑起来了
 
 
 ### EC2
 [how-deploy-spring-boot-application-aws-ec2](https://www.linkedin.com/pulse/how-deploy-spring-boot-application-aws-ec2-3-rakesh-reddy-kjiwc/)
+
 [Deploying a Spring Boot Application on AWS with Docker](https://medium.com/@rosuth/deploying-a-spring-boot-application-on-aws-with-docker-e065ab3ab501)
 
 ### QA
