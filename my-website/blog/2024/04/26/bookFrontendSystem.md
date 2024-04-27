@@ -17,6 +17,11 @@ UI展示
 ## ios应用
 [SwiftUI](https://developer.apple.com/cn/xcode/swiftui/)
 
+[SF Symbols 5](https://developer.apple.com/sf-symbols/)
+Apple has a dedicated App for this called SF Symbols. You can preview all symbols right from the Xcode app using the Library in XCode14.
+
+command + shift + L
+
 [IOS APP Transport security has blocked a cleartext HTTP](https://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http)
 
 [IOS 最简单的DatePicker](https://blog.liboliu.com/a/142)
@@ -43,3 +48,11 @@ go to the project folder `yarn start`
 https://quennelorg.github.io/bookManagementFrontend/
 
 http://quennelcoder-bookmanagement.s3-website-ap-southeast-2.amazonaws.com/
+
+
+## Good Resource
+### IOS
+[Swift Playgrounds Book](https://www.youtube.com/watch?v=R4j5SU1WSLI)
+[SwiftUI-Foundation-Series GitHub](https://github.com/codecat15/SwiftUI-Foundation-Series/tree/main)
+[SwiftUI Foundation-Series](https://www.youtube.com/playlist?list=PLb5R4QC2DtFs8alYSS_cqNjLTDHucbuFl)
+[How to make an API Request in SwiftUI with MVVM pattern](https://medium.com/dhiwise/how-to-make-an-api-request-in-swiftui-with-mvvm-pattern-1f5233e9eff2)
