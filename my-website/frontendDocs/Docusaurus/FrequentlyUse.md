@@ -12,3 +12,5 @@ sidebar_position: 1
 ## [Databend 文档的 i18n 实践](https://xuanwo.io/reports/2022-47/)
 
 ## [i18n](https://docusaurus.io/docs/i18n/tutorial)
+
+## [Infima Button style](https://infima.dev/docs/components/button/)

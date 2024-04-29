@@ -13,21 +13,39 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
 	{
-		title: 'Tech everyone',
-		Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-		description: <>Tech everyone.</>,
+		title: 'Tech',
+		Svg: require('@site/static/img/light-bulb-svgrepo-com.svg').default,
+		description: <>科技文档保存</>,
 		path: '/docs/intro',
 	},
 	{
-		title: 'Blog everything',
-		Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-		description: <>Blog everything.</>,
+		title: 'Blog',
+		Svg: require('@site/static/img/blog-svgrepo-com.svg').default,
+		description: <>记录一切内容</>,
 		path: '/blog',
 	},
 	{
+		title: 'Todo',
+		Svg: require('@site/static/img/todo-svgrepo-com.svg').default,
+		description: <>工作待定任务</>,
+		path: '/todo/home',
+	},
+	{
+		title: 'Backend',
+		Svg: require('@site/static/img/data-storage-svgrepo-com.svg').default,
+		description: <>后端文档保存</>,
+		path: '/backendDocs/intro',
+	},
+	{
+		title: 'Frontend',
+		Svg: require('@site/static/img/smartphones-svgrepo-com.svg').default,
+		description: <>前端文档保存</>,
+		path: '/frontendDocs/intro',
+	},
+	{
 		title: 'Todo everyDay',
-		Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-		description: <>Todo everyDay.</>,
+		Svg: require('@site/static/img/todo-svgrepo-com.svg').default,
+		description: <>待定</>,
 		path: '/todo/home',
 	},
 ];
@@ -39,10 +57,10 @@ function Feature({ title, Svg, description, path }: FeatureItem) {
 				<Svg className={styles.featureSvg} role="img" />
 			</div>
 			<div className="text--center padding-horiz--md">
-				<Link className="button button--secondary button--lg" to={path}>
+				<Link className="button  button--info button--lg" to={path}>
 					{title}
 				</Link>
-				{/*<p>{description}</p>*/}
+				<p>{description}</p>
 			</div>
 		</div>
 	);
