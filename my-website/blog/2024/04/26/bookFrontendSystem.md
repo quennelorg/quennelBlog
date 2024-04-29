@@ -44,10 +44,17 @@ go to the project folder `yarn start`
 [什么是 Amazon S3？](https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/Welcome.html)
 
 [一文读懂 AWS S3](https://zhuanlan.zhihu.com/p/112057573)
+- create s3
+- upload file
+- system setting [WebsiteAccessPermissionsReqd](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteAccessPermissionsReqd.html)
+  - disable Block Public Access settings for this bucket
+  - enable true for (setting Static website hosting)
+![img_3.png](img_3.png)
 
+  
 https://quennelorg.github.io/bookManagementFrontend/
 
-http://quennelcoder-bookmanagement.s3-website-ap-southeast-2.amazonaws.com/
+http://quennelcoder-book.s3-website-ap-southeast-2.amazonaws.com/
 
 
 ## Good Resource
