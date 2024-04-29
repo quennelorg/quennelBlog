@@ -18,7 +18,7 @@ While working on the implementation, I encountered a problem. I had the AlertTyp
 ## Discovery
 ### GPT
 When faced with uncertainty, I turned to the internet for assistance. Initially, my search direction was quite broad, and most of the answers suggested using mapping. However, I wanted to define them as a single type. So, I sought help from GPT and discovered a new approach: using the record type.
-GPT (Generative Pre-trained Transformer) proved to be a helpful resource in my search for a solution. Although not all of its answers were accurate, I learned to distinguish between good and bad suggestions and draw inspiration from them
+GPT - Generative Pre-trained Transformer proved to be a helpful resource in my search for a solution. Although not all of its answers were accurate, I learned to distinguish between good and bad suggestions and draw inspiration from them
 ### record
 Following the suggestion from GPT, I explored the use of the record type to solve the problem. Here's an example of how I ultimately implemented it:
 
@@ -192,7 +192,7 @@ This new factory method defines a Record where the Discriminator matches a funct
 If we add a new type to the Discriminator, TypeScript will check the Record type and prompt us to add the corresponding case.
 #### Enforcing type checking in applications that use generics
 [generics](https://blog.logrocket.com/using-typescript-generics-create-reusable-components/)可以从实际类型抽象出来的类型，比如`Record<K, V>`就是一个范型，当我们想使用它时，我们可以任意挑选两个实际的类型，一个作为key，一个作为values  
-Generics allow us to write code that is abstract over actual types. For example, Record<K, V> is a generic type. When we use it, we have to pick two actual types: one for the keys (K) and one for the values (V).
+Generics allow us to write code that is abstract over actual types. For example, `Record<K, V>` is a generic type. When we use it, we have to pick two actual types: one for the keys K and one for the values V.
   
 Generics are extremely useful in modern programming, as they enable us to write highly reusable code. The code to make HTTP calls or query a database is normally generic over the type of the returned value. This is very nice, but it comes at a cost because it makes it difficult for us to know the actual properties of the returned value.
   
@@ -206,7 +206,7 @@ class Result<Properties = Record<string, any>> {
         ) {}
 }
 ```
-Result is a bit complex. In this example, we declare it as a generic type where the type parameter, Properties, defaults to Record<string, any>.
+Result is a bit complex. In this example, we declare it as a generic type where the type parameter, Properties, defaults to `Record<string, any>`.
 Using any here might look ugly, but it actually makes sense. As we’ll see in a moment, the Record will map property names to property values, so we can’t really know the type of the properties in advance. Furthermore, to make it as reusable as possible, we’ll have to use the most abstract type TypeScript has — any, indeed!
 
 The constructor leverages some TypeScript syntactic sugar to define a read-only property, which we’ve aptly named properties. Notice the definition of the Record type:
