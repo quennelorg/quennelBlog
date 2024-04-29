@@ -47,7 +47,26 @@ go to the project folder `yarn start`
 - create s3
 - upload file
 - system setting [WebsiteAccessPermissionsReqd](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteAccessPermissionsReqd.html)
-  - disable Block Public Access settings for this bucket
+  - Step 1: Edit S3 Block Public Access settings
+  - Step 2: Add a bucket policy
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::Bucket-Name/*"
+            ]
+        }
+    ]
+}
+```
   - enable true for (setting Static website hosting)
 ![img_3.png](img_3.png)
 
