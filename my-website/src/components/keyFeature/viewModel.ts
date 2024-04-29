@@ -15,11 +15,11 @@ const isWeatherKey = (type: string) => {
 };
 
 export const getGeoKey = (list) => {
-	return list.filter((key) => isGeoKey(key.type));
+	return _.filter(list, (key) => isGeoKey(key.type));
 };
 
 export const getWeatherKey = (list) => {
-	return list.filter((key) => isWeatherKey(key.type));
+	return _.filter(list, (key) => isWeatherKey(key.type));
 };
 
 export const getApiKey = (type: APITYPE, name?: '') => {
