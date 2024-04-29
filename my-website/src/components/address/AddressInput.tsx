@@ -1,4 +1,5 @@
-import { Autocomplete, Box, Grid, TextField, Typography } from '@mui/material';
+import * as React from 'react';
+import { Autocomplete, Box, CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import parse from 'autosuggest-highlight/parse';
 import { useCallback, useEffect, useState } from 'react';
@@ -9,6 +10,7 @@ import { getApiKey } from '@site/src/components/keyFeature/viewModel';
 import { APITYPE } from '@site/src/components/keyFeature/model';
 
 const AddressInput = ({ value, setValue }) => {
+	const [loading, setLoading] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 	const [options, setOptions] = useState<readonly PlaceType[]>([]);
 	const apiKey = getApiKey(APITYPE.geo);
@@ -27,6 +29,7 @@ const AddressInput = ({ value, setValue }) => {
 			return undefined;
 		}
 		console.log(apiKey);
+		setLoading(true);
 		fetch({ input: inputValue, key: apiKey }, (results?: readonly PlaceType[]) => {
 			if (active) {
 				let newOptions: readonly PlaceType[] = [];
@@ -38,8 +41,8 @@ const AddressInput = ({ value, setValue }) => {
 				if (results) {
 					newOptions = [...newOptions, ...results];
 				}
-
 				setOptions(newOptions);
+				setLoading(false);
 			}
 		});
 
@@ -52,6 +55,7 @@ const AddressInput = ({ value, setValue }) => {
 		<Autocomplete
 			id="getCitiesAddress"
 			sx={{ width: 300 }}
+			loading={loading}
 			getOptionLabel={(option) => (typeof option === 'string' ? option : option.description)}
 			filterOptions={(x) => x}
 			options={options}
@@ -67,7 +71,22 @@ const AddressInput = ({ value, setValue }) => {
 			onInputChange={(event, newInputValue) => {
 				setInputValue(newInputValue);
 			}}
-			renderInput={(params) => <TextField {...params} label="Add a location" fullWidth />}
+			renderInput={(params) => (
+				<TextField
+					{...params}
+					label="Add a location"
+					InputProps={{
+						...params.InputProps,
+						endAdornment: (
+							<React.Fragment>
+								{loading ? <CircularProgress color="inherit" size={20} /> : null}
+								{params.InputProps.endAdornment}
+							</React.Fragment>
+						),
+					}}
+					fullWidth
+				/>
+			)}
 			renderOption={(props, option) => {
 				const matches = option.structured_formatting.main_text_matched_substrings || [];
 
