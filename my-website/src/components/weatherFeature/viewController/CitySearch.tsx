@@ -2,15 +2,14 @@ import AddressInput from '@site/src/components/address/AddressInput';
 import { Stack, Box } from '@mui/material';
 import LoadingButtonView from '@site/src/components/weatherFeature/viewController/LadoingButtonView';
 import { useState } from 'react';
-import { fetchCurrentAndForecastWeather } from '@site/src/components/service/weather/weatherService';
+import { fetchCurrentAndForecastWeather, fetchCurrentWeather } from '@site/src/components/service/weather/weatherService';
 import { getCurrentWeather, getForecastWeather } from '@site/src/components/service/weather/viewModel';
 import { GeoLatLon } from '@site/src/components/service/weather/model';
 import { PlaceType } from '@site/src/components/address/model';
 import axios from 'axios';
 
-const CitySearch = () => {
+const CitySearch = ({ setCurrentWeatherData, loading, setLoading }) => {
 	const [value, setValue] = useState<PlaceType | null>(null);
-	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState(false);
 	const handleButtonClick = () => {
 		if (!loading) {
@@ -18,16 +17,15 @@ const CitySearch = () => {
 		}
 		const key = 'f13d5af96be223d2a7b9d72f0a3dd2ce';
 		const geoLatLon: GeoLatLon = { latitude: value.latitude, longitude: value.longitude };
-		fetchCurrentAndForecastWeather(key, geoLatLon)
-			.then(
-				axios.spread((...res) => {
-					setLoading(false);
-					setSuccess(true);
-					console.log(getCurrentWeather(res[0]).icon);
-					// console.log(getForecastWeather(res[1]));
-					setTimeout(tick, 1000);
-				}),
-			)
+		fetchCurrentWeather(key, geoLatLon)
+			.then((...res) => {
+				setLoading(false);
+				setSuccess(true);
+				console.log(getCurrentWeather(res[0].data));
+				setCurrentWeatherData(getCurrentWeather(res[0].data));
+				// console.log(getForecastWeather(res[1]));
+				setTimeout(tick, 1000);
+			})
 			.catch((error) => {
 				setLoading(false);
 				setSuccess(false);
