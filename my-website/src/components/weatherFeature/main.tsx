@@ -35,8 +35,9 @@ const WeatherFeature = () => {
 			feelTemp: 14.74,
 			mainTemp: 14.99,
 		},
-		sunrise: '2024-04-30 05:39:57',
-		sunset: '2024-04-30 18:59:58',
+		sunrise: '05:39:57',
+		sunset: '18:59:58',
+		date: '2024-04-18',
 		reactAnimatedWeather: {
 			icon: 'PARTLY_CLOUDY_NIGHT',
 			color: 'goldenrod',
@@ -44,7 +45,7 @@ const WeatherFeature = () => {
 			animate: true,
 		},
 	};
-	const [currentWeatherData, setCurrentWeatherData] = useState<Weather | null>(weather);
+	const [currentWeatherData, setCurrentWeatherData] = useState<Weather | null>(null);
 	const [loading, setLoading] = useState(false);
 	const [forecastWeatherData, setForecastWeatherData] = useState<Weather[] | null>(null);
 	return (
@@ -60,21 +61,11 @@ const WeatherFeature = () => {
 						<CitySearch setCurrentWeatherData={setCurrentWeatherData} loading={loading} setLoading={setLoading} />
 					</Item>
 				</Grid>
-				{(currentWeatherData || loading) && (
-					<Grid item xs={12}>
-						<Item>
-							<CurrentWeather currentWeatherData={currentWeatherData} loading={loading} />
-						</Item>
-					</Grid>
-				)}
-				{forecastWeatherData && (
-					<Grid item xs={12}>
-						<Item>
-							<ForecastWeather />
-						</Item>
-					</Grid>
-				)}
 			</Grid>
+			<Box justifyContent="center" align-items="center">
+				{(currentWeatherData || loading) && <CurrentWeather currentWeatherData={currentWeatherData} loading={loading} />}
+			</Box>
+			{forecastWeatherData && <ForecastWeather />}
 		</Box>
 	);
 };
