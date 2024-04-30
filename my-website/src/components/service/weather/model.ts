@@ -47,6 +47,7 @@ export interface Weather {
 	iconCode?: string; // 图标icon
 	sunrise?: string; // 日升
 	sunset?: string; // 日落
+	date?: string; // 日期
 	reactAnimatedWeather?: ReactAnimatedWeatherModel; // 动态天气
 }
 

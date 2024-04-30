@@ -54,8 +54,9 @@ describe('test getCurrentWeather', function () {
 			description: '阴，多云',
 			descriptionEn: 'Clouds',
 			iconCode: '04n',
-			sunrise: '2024-04-18 05:51:57',
-			sunset: '2024-04-18 18:51:59',
+			sunrise: '05:51:57',
+			sunset: '18:51:59',
+			date: '2024-04-18',
 			reactAnimatedWeather: {
 				animate: true,
 				color: 'goldenrod',

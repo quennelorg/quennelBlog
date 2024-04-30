@@ -15,8 +15,9 @@ export const getCurrentWeather = (data: any): Weather => {
 		descriptionEn: _.get(data, 'weather[0].main'),
 		iconCode: _.get(data, 'weather[0].icon'),
 		temp: getTemp(_.get(data, 'main')),
-		sunrise: getTimeString(_.get(data, 'sys.sunrise')),
-		sunset: getTimeString(_.get(data, 'sys.sunset')),
+		sunrise: getTimeString(_.get(data, 'sys.sunrise'), 'HH:mm:ss'),
+		sunset: getTimeString(_.get(data, 'sys.sunset'), 'HH:mm:ss'),
+		date: getTimeString(_.get(data, 'sys.sunset'), 'YYYY-MM-DD'),
 		reactAnimatedWeather: {
 			icon: iconMapping[_.get(data, 'weather[0].icon')] || '',
 			color: 'goldenrod',
@@ -49,8 +50,8 @@ const getTemp = (data: any): Temp => {
 const iconURL = (icon, isUseWebResource = false) =>
 	isUseWebResource ? `https://openweathermap.org/img/wn/${icon}@2x.png` : `@site/static/img/weatherIcon/${icon}.png`;
 
-const getTimeString = (time: number): string => {
-	return dayjs.unix(time).utc().local().format('YYYY-MM-DD HH:mm:ss');
+const getTimeString = (time: number, template: string): string => {
+	return dayjs.unix(time).utc().local().format(template);
 };
 
 const iconMapping = {
