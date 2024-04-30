@@ -45,7 +45,7 @@ const WeatherFeature = () => {
 			animate: true,
 		},
 	};
-	const [currentWeatherData, setCurrentWeatherData] = useState<Weather | null>(null);
+	const [currentWeatherData, setCurrentWeatherData] = useState<Weather | null>(weather);
 	const [loading, setLoading] = useState(false);
 	const [forecastWeatherData, setForecastWeatherData] = useState<Weather[] | null>(null);
 	return (

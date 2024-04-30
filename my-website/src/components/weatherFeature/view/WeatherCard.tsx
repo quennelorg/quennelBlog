@@ -15,7 +15,7 @@ import IconWiHumidity from '@site/src/components/weatherFeature/view/IconWiHumid
 const WeatherCard = ({ loading, currentWeatherData }) => {
 	const data: Weather = currentWeatherData;
 	return (
-		<Card sx={{ maxWidth: 1080, m: 1 }}>
+		<Card sx={{ m: 1 }}>
 			<CardHeader
 				avatar={
 					loading ? (
