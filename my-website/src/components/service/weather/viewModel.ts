@@ -1,5 +1,8 @@
 import { ForecastWeather, Temp, Weather } from '@site/src/components/service/weather/model';
 import _ from 'lodash';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+dayjs.extend(utc);
 
 export const getCurrentWeather = (data: any): Weather => {
 	return {
@@ -9,8 +12,17 @@ export const getCurrentWeather = (data: any): Weather => {
 			humidity: _.get(data, 'main.humidity'),
 		},
 		description: _.get(data, 'weather[0].description'),
-		icon: _.get(data, 'weather[0].icon'),
+		descriptionEn: _.get(data, 'weather[0].main'),
+		iconCode: _.get(data, 'weather[0].icon'),
 		temp: getTemp(_.get(data, 'main')),
+		sunrise: getTimeString(_.get(data, 'sys.sunrise')),
+		sunset: getTimeString(_.get(data, 'sys.sunset')),
+		reactAnimatedWeather: {
+			icon: iconMapping[_.get(data, 'weather[0].icon')] || '',
+			color: 'goldenrod',
+			size: 128,
+			animate: true,
+		},
 	};
 };
 
@@ -32,4 +44,32 @@ const getTemp = (data: any): Temp => {
 		feelTemp: _.get(data, 'feels_like'),
 		mainTemp: _.get(data, 'temp'),
 	};
+};
+
+const iconURL = (icon, isUseWebResource = false) =>
+	isUseWebResource ? `https://openweathermap.org/img/wn/${icon}@2x.png` : `@site/static/img/weatherIcon/${icon}.png`;
+
+const getTimeString = (time: number): string => {
+	return dayjs.unix(time).utc().local().format('YYYY-MM-DD HH:mm:ss');
+};
+
+const iconMapping = {
+	'01d': 'CLEAR_DAY',
+	'01n': 'CLEAR_DAY',
+	'02d': 'PARTLY_CLOUDY_DAY',
+	'02n': 'PARTLY_CLOUDY_DAY',
+	'03d': 'CLOUDY',
+	'03n': 'CLOUDY',
+	'04d': 'PARTLY_CLOUDY_NIGHT',
+	'04n': 'PARTLY_CLOUDY_NIGHT',
+	'09d': 'SLEET',
+	'09n': 'SLEET',
+	'10d': 'RAIN',
+	'10n': 'RAIN',
+	'11d': 'RAIN',
+	'11n': 'RAIN',
+	'13d': 'SNOW',
+	'13n': 'SNOW',
+	'50d': 'FOG',
+	'50n': 'FOG',
 };

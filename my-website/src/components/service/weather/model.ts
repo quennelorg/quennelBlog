@@ -19,11 +19,35 @@ export const getWeatherUrlOptions = (key: string, geoLatLon: GeoLatLon, isCurren
 	};
 };
 
+export enum ReactAnimatedWeatherIcon {
+	CLEAR_DAY = 'CLEAR_DAY',
+	CLEAR_NIGHT = 'CLEAR_NIGHT',
+	PARTLY_CLOUDY_DAY = 'PARTLY_CLOUDY_DAY',
+	PARTLY_CLOUDY_NIGHT = 'PARTLY_CLOUDY_NIGHT',
+	CLOUDY = 'CLOUDY',
+	RAIN = 'RAIN',
+	SLEET = 'SLEET',
+	SNOW = 'SNOW',
+	WIND = 'WIND',
+	FOG = 'FOG',
+}
+
+export interface ReactAnimatedWeatherModel {
+	icon?: string;
+	color?: string;
+	size?: number;
+	animate?: boolean;
+}
+
 export interface Weather {
-	temp: Temp; // 温度
-	airConditions: AirConditions; // 空气
-	description: string; // 总体描述
-	icon: string; // 图标
+	temp?: Temp; // 温度
+	airConditions?: AirConditions; // 空气
+	description?: string; // 总体描述
+	descriptionEn?: string; // 总体描述en
+	iconCode?: string; // 图标icon
+	sunrise?: string; // 日升
+	sunset?: string; // 日落
+	reactAnimatedWeather?: ReactAnimatedWeatherModel; // 动态天气
 }
 
 export interface ForecastWeather extends Weather {

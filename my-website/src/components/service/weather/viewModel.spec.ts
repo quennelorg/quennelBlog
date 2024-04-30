@@ -1,5 +1,6 @@
 import { describe, it, expect } from '@jest/globals';
 import { getCurrentWeather } from '../weather/viewModel';
+
 describe('test getCurrentWeather', function () {
 	it('should return correct value', function () {
 		const apiCallReturn = {
@@ -51,7 +52,16 @@ describe('test getCurrentWeather', function () {
 		const result = {
 			airConditions: { clouds: 100, humidity: 61, wind: { deg: 116, gust: 10.11, speed: 4.77 } },
 			description: '阴，多云',
-			icon: '04n',
+			descriptionEn: 'Clouds',
+			iconCode: '04n',
+			sunrise: '2024-04-18 05:51:57',
+			sunset: '2024-04-18 18:51:59',
+			reactAnimatedWeather: {
+				animate: true,
+				color: 'goldenrod',
+				icon: 'PARTLY_CLOUDY_NIGHT',
+				size: 128,
+			},
 			temp: { feelTemp: 25.14, mainTemp: 24.99, tempMax: 24.99, tempMin: 22.99 },
 		};
 		expect(result).toStrictEqual(getCurrentWeather(apiCallReturn));
