@@ -1,6 +1,6 @@
 import AddressInput from '@site/src/components/address/AddressInput';
 import { Stack, Box } from '@mui/material';
-import LoadingButtonView from '@site/src/components/weatherFeature/viewController/LadoingButtonView';
+import LoadingButtonView from '@site/src/components/weatherFeature/viewController/LoadingButtonView';
 import { useState } from 'react';
 import { fetchCurrentAndForecastWeather, fetchCurrentWeather } from '@site/src/components/service/weather/weatherService';
 import { getCurrentWeather, getForecastWeather } from '@site/src/components/service/weather/viewModel';
