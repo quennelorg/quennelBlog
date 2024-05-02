@@ -6,7 +6,6 @@ import { fetchCurrentAndForecastWeather, fetchCurrentWeather } from '@site/src/c
 import { getCurrentWeather, getForecastWeather } from '@site/src/components/service/weather/viewModel';
 import { GeoLatLon } from '@site/src/components/service/weather/model';
 import { PlaceType } from '@site/src/components/address/model';
-import axios from 'axios';
 
 const CitySearch = ({ setCurrentWeatherData, loading, setLoading }) => {
 	const [value, setValue] = useState<PlaceType | null>(null);

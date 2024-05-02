@@ -5,7 +5,6 @@ import CitySearch from '@site/src/components/weatherFeature/viewController/CityS
 import ClockTool from '@site/src/components/weatherFeature/viewController/ClockTool';
 import CurrentWeather from '@site/src/components/weatherFeature/viewController/CurrentWeather';
 import ForecastWeather from '@site/src/components/weatherFeature/viewController/ForecastWeather';
-import { PlaceType } from '@site/src/components/address/model';
 import { Weather } from '@site/src/components/service/weather/model';
 
 const Item = styled(Paper)(({ theme }) => ({
