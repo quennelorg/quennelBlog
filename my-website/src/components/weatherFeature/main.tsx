@@ -2,7 +2,7 @@ import { Box, Grid, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import React, { useState } from 'react';
 import CitySearch from '@site/src/components/weatherFeature/viewController/CitySearch';
-import ClockTool from '@site/src/components/weatherFeature/viewController/ClockTool';
+import ClockTool from '@site/src/components/weatherFeature/view/ClockTool';
 import CurrentWeather from '@site/src/components/weatherFeature/viewController/CurrentWeather';
 import ForecastWeather from '@site/src/components/weatherFeature/viewController/ForecastWeather';
 import { Weather } from '@site/src/components/service/weather/model';
