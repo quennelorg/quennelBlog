@@ -6,7 +6,7 @@ tags: [Mongodb,Docker,AWS,ECS]
 date: 2024-04-26T08:56
 ---
 ## [Docker](https://www.docker.com/)
-[Docker docs](/backendDocs/category/docker)
+[Docker docs](/docs/category/docker)
 
 [Colima](https://github.com/abiosoft/colima)
 
