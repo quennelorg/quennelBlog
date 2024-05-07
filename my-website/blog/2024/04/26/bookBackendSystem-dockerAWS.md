@@ -12,8 +12,7 @@ date: 2024-04-26T08:56
 
 Colima 是一款工具，可以轻松在 macOS 和 Linux 上运行 Docker 容器。
 [Colima：Docker Desktop for Mac 的免费替代品，轻松管理容器和 K8s（支持 M1 芯片）](https://zhuanlan.zhihu.com/p/466229156)
-
-常见的使用命令[Frequently Command](/backendDocs/Docker/FrequentlyCommand)
+常见的使用命令[Frequently Command](/docs/Docker/FrequentlyCommand)
 
 
 
@@ -36,11 +35,11 @@ Colima 是一款工具，可以轻松在 macOS 和 Linux 上运行 Docker 容器
 
 也可以去docker镜像里面去看`docker exec -it mongo mongosh`
 
-如果没问题，则给这个docker打tag，并push到dockerhub [PushToHub](/backendDocs/Docker/PushToHub)
+如果没问题，则给这个docker打tag，并push到dockerhub [PushToHub](/docs/Docker/PushToHub)
 
 ### JAVA 镜像
 #### dockerfile
-[Dockerfile for Java built with Gradle](/backendDocs/Docker/DockerfileInJava)
+[Dockerfile for Java built with Gradle](/docs/Docker/DockerfileInJava)
 在项目下：
 ```dockerfile title="Dockerfile"
 FROM openjdk:17-jdk-alpine
@@ -72,7 +71,7 @@ ENTRYPOINT 启动时的默认命令
 ` docker exec -it quennelcoder/mydocker:bookmanagementv1 /bin/bash `
 `java -jar build/libs/bookAPI-0.0.1-SNAPSHOT.jar  `
 
-如果没问题，则给这个docker打tag，并push到dockerhub [PushToHub](/backendDocs/Docker/PushToHub)
+如果没问题，则给这个docker打tag，并push到dockerhub [PushToHub](/docs/Docker/PushToHub)
 
 #### QA
 `exec /opt/openjdk-17/bin/java: exec format error`
