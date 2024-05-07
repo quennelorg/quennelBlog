@@ -3,7 +3,7 @@ slug: refactorPractice2
 title: 重构实践2
 authors: quennel
 tags: [refactor]
-date: 2024-05-07T16:02
+date: 2024-05-07T17:54
 ---
 
 ## 搬移特性
