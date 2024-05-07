@@ -22,3 +22,9 @@ Expected a closing tag for <T> (1:6-1:9) before the end of paragraph end-tag-mis
 Expected a closing tag for <YOUR_MINOR_VERSION> (134:19-134:39) before the end of paragraph
 :::
 ```
+
+
+##  Error: Docusaurus found broken links!
+It looks like some of the broken links we found appear in many pages of your site.
+
+有时候把文档移动了位置，然后在其他地方所使用到的链接是错误的，如果build的话，就成了 broken links
