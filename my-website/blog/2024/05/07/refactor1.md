@@ -1,6 +1,6 @@
 ---
-slug: refactor1
-title: 重构1
+slug: refactorExplaining
+title: 重构解释
 authors: quennel
 tags: [refactor]
 date: 2024-05-07T10:19
