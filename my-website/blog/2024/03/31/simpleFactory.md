@@ -35,3 +35,6 @@ tags: [DesignModel, simpleFactory]
 看到有个例子很有趣，在这做个记录：
 
 https://github.com/quennelorg/designModelTraining/tree/main/app/src/main/java/simpleFactory/car
+
+### good resource
+https://shusheng007.top/2021/09/07/design-pattern/
