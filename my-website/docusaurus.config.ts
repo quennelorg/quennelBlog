@@ -165,13 +165,8 @@ const config: Config = {
 					items: [
 						{
 							label: 'Blog',
-							href: '/blog',
+							to: '/blog',
 						},
-					],
-				},
-				{
-					title: 'Personal',
-					items: [
 						{
 							label: 'Todo',
 							to: '/todo/home',
@@ -180,9 +175,22 @@ const config: Config = {
 							label: 'Key',
 							to: '/key',
 						},
+					],
+				},
+				{
+					title: 'Good Blog',
+					items: [
 						{
-							label: 'GitHub',
-							href: 'https://github.com/Quennel-coder',
+							label: 'backend',
+							href: 'https://objcoding.com/',
+						},
+						{
+							label: 'frontend',
+							href: 'https://github.com/forthealllight/blog',
+						},
+						{
+							label: 'backend',
+							href: 'https://shusheng007.top/',
 						},
 					],
 				},
