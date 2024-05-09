@@ -14,3 +14,5 @@ date: 2024-05-08T13:14
 
 简单工厂的工厂类是一个静态工厂，而工厂方法的工厂类是可以为不同的产品生成不同的工厂类
 
+参考：
+https://github.com/quennelorg/designModelTraining/tree/main/app/src/main/java/factoryMethod
