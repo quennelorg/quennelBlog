@@ -3,7 +3,7 @@ slug: templateMethod
 title: 模板方法模式
 authors: quennel
 tags: [DesignModel, templateMethod]
-date: 2024-05-08T13:14
+date: 2024-05-09T14:14
 ---
 
 ## 模板方法模式

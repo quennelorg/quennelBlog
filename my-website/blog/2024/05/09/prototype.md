@@ -3,7 +3,7 @@ slug: prototype
 title: 原型模式
 authors: quennel
 tags: [DesignModel, prototype]
-date: 2024-05-08T13:14
+date: 2024-05-09T10:08
 ---
 
 ## 原型模式
