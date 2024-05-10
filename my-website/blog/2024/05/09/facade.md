@@ -3,7 +3,7 @@ slug: facade
 title: 外观模式
 authors: quennel
 tags: [DesignModel, facade]
-date: 2024-05-09T14:14
+date: 2024-05-09T16:14
 ---
 
 ## 外观模式
