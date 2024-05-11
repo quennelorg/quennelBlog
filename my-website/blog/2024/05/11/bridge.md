@@ -3,7 +3,7 @@ slug: bridge
 title: 桥接模式
 authors: quennel
 tags: [DesignModel, bridge]
-date: 2024-05-11T10:14
+date: 2024-05-11T17:21
 ---
 
 ## 桥接模式
