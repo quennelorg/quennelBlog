@@ -25,6 +25,10 @@ Next.js 被一些世界上最大的公司使用，使您能够利用 React 组�
 
 ## 工具
 
+### [Babel](https://babeljs.io/)
+可以编译成浏览器支持的JS版本
+- 比如将ES7转换成ES5
+- 将jsx编译成js
 ### [MUI](https://mui.com/)
 [Docs Address](/frontendDocs/category/mui)  
 Move faster with intuitive React UI tools

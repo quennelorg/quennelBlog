@@ -14,6 +14,8 @@ Git is a free and open source distributed version control system designed to han
 ### [Markdown](https://markdown.com.cn/)
 ### [Draw.IO](https://draw.io/)
 
+## 基础
+### [语义化版本](https://semver.org/lang/zh-CN/)
 
 ## 好的资源
 [SVG ICON](https://www.svgrepo.com/)
