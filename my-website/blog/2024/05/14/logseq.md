@@ -65,6 +65,12 @@ copy block embed
 #### command + [ 上一个页面
 #### command + ] 下一个页面
 
-块操作
+page操作
+#### gn 去旅程的上一页
+#### gp 去旅程的下一页
+#### gs 去keymap（探索更多的快捷键）
+
+
+block操作
 
 #### option + ⬇️ or ⬆️ 选中某一个块
