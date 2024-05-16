@@ -2,11 +2,11 @@
 slug: logseqPublished
 title: 如何部署Logseq
 authors: quennel
-tags: [DesignModel, Logseq, Published, github page]
+tags: [DesignModel, Logseq, GithubPage]
 date: 2024-05-15T14:21
 ---
 
-## [Logseq](/quennelBlog/blog/logseq)
+## [Logseq](/blog/logseq)
 
 ### 确保这个文档是public
 首先要确保logseq中所有的page是public
