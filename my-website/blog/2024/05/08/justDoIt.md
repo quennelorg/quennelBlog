@@ -3,7 +3,7 @@ slug: justDoIt
 title: 干就行了
 authors: quennel
 tags: [life, work]
-date: 2024-04-17T20:40
+date: 2024-05-08T20:40
 ---
 
 ## Just Do It
