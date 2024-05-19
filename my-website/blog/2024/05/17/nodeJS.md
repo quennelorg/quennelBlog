@@ -12,9 +12,12 @@ date: 2024-05-17T10:21
 
 了解到这，第一反应就是这跟JVM是一个样的作用，JVM是Java的运行环境，nodeJS是javascript的运行环境。
 
-运行环境：编程语言能够运行的环境，其中包含编程语言所需的资源和工具（直接跟操作系统，磁盘进行操作）
+运行环境：编程语言能够运行的环境，其中包含编程语言所需的资源和工具（直接跟操作系统，磁盘进行操作，网络通信）
+
 
 JavaScript除了通过nodeJS运行外，最常见甚至最开始是在浏览器中运行，用来操作document元素，通常被称为脚本代码。
+
+![img.png](img.png)
 
 在读大学的时候，html，css，js统称为前端，随着前端框架的发展更注重于快速实现需求，而不是重复的造轮子，之后还是要多研究下原理
 
@@ -37,5 +40,7 @@ NodeJS的主要组件：
 #### 不同点
 - jvm运行java，nodejs运行javascript
 - 能力不一样，javascript是单线程语言，java是多线程
-- 实现方式和内存管理都一样
+- 实现方式和内存管理都不一样
+  - js 事件驱动，异步I/O，单线程
+  - 多线程，同步机制等
 - JVM支持Java，kotlin，scala，groovy，nodejs支持javascript，通过工具（babel，typescript），也支持转译语言
