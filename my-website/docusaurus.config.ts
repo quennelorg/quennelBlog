@@ -192,6 +192,10 @@ const config: Config = {
 							label: 'backend',
 							href: 'https://shusheng007.top/',
 						},
+						{
+							label: 'resource',
+							href: 'https://codingheroes.io/resources/',
+						},
 					],
 				},
 				{
