@@ -7,7 +7,7 @@ date: 2024-05-22T15:07
 ---
 
 
-## [Sample NodeJS Simple Application] (https://github.com/quennelorg/expressJSMongodb/tree/main/work/1-node-farm/starter)
+## [Sample NodeJS Simple Application](https://github.com/quennelorg/expressJSMongodb/tree/main/work/1-node-farm/starter)
 
 ## HTTP服务器
 ```js
