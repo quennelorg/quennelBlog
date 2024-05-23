@@ -213,6 +213,10 @@ const config: Config = {
 							label: 'Algorithm',
 							href: 'https://github.com/Quennel-coder/fucking-algorithm',
 						},
+						{
+							label: 'ImageSolving',
+							href: 'https://www.xiaolincoding.com/',
+						},
 					],
 				},
 			],

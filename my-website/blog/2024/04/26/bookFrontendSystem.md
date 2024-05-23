@@ -73,7 +73,7 @@ go to the project folder `yarn start`
   
 https://quennelorg.github.io/bookManagementFrontend/
 
-http://quennelcoder-book.s3-website-ap-southeast-2.amazonaws.com/
+http://quennelcoder.s3-website-ap-southeast-2.amazonaws.com/
 
 
 ## Good Resource
