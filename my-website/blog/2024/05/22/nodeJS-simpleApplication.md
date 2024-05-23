@@ -65,6 +65,8 @@ const server = http.createServer((req, res) => {
 
 ## SSR（Server-Side Rendering）
 
+[vue服务端渲染](https://cn.vuejs.org/guide/scaling-up/ssr.html)
+
 刚开始听这个概念，就觉得很高大上，但是实际了解过后，有种感觉，怎么技术发展得倒退了。
 
 依稀记得在刚读大学的时候，从Java开始学习，那时候接触到的前端只有html，css，js，jquery，
@@ -82,3 +84,15 @@ const server = http.createServer((req, res) => {
 - 现在基本上没有单独的SSR，因为总有一些操作需要放到客户端，因此SSR跟CSR的融合似乎还是有很多很多坑
   - 印象中路由问题是一个大问题，因为服务器端可以有自己的路由系统，客户端也有自己的路由系统，那么处理不当就会有路由和导航的问题
   - 生命周期，服务器端是不感知客户端浏览器组件的生命周期，因此，react的很多方法并不能在服务器端调用
+
+
+## static Websites Vs dynamic Websites
+
+![img.png](img.png)
+
+## dynamic Websites Vs API-Powered Websites
+
+![img_1.png](img_1.png)
+
+## One API, Many Consumers
+![img_2.png](img_2.png)
