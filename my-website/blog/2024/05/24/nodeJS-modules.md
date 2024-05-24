@@ -88,3 +88,150 @@ Node.js 实际上会将这个文件的内容包装在一个函数中，如下所
 
 
 ![img.png](img.png)
+
+
+## experiment
+
+### log arguments
+```js
+console.log(arguments);
+
+```
+
+结果：
+```js
+/*
+[Arguments] {
+    '0': {},
+    '1': [Function: require] {
+        resolve: [Function: resolve] { paths: [Function: paths] },
+        main: Module {
+            id: '.',
+                path: '/path/to/your/directory',
+                exports: {},
+            parent: null,
+                filename: '/path/to/your/directory/example.js',
+                loaded: false,
+                children: [],
+                paths: [Array]
+        },
+        extensions: [Object: null prototype] {
+            '.js': [Function (anonymous)],
+                '.json': [Function (anonymous)],
+                '.node': [Function (anonymous)]
+        },
+        cache: [Object: null prototype] {}
+    },
+    '2': Module {
+        id: '.',
+            path: '/path/to/your/directory',
+            exports: {},
+        parent: null,
+            filename: '/path/to/your/directory/example.js',
+            loaded: false,
+            children: [],
+            paths: [
+            '/path/to/your/directory/node_modules',
+            '/path/to/node_modules',
+            '/node_modules'
+        ]
+    },
+    '3': '/path/to/your/directory/example.js',
+        '4': '/path/to/your/directory'
+}
+ */
+```
+
+- `exports`: `{}` - 一个空对象，用于导出模块的内容。
+- `require`: `[Function: require]` - 导入其他模块的函数，并包含一些子属性如 `resolve`、`main`、`extensions`、`cache`。
+- `module`: `Module` 对象，表示当前模块。包含 `id`、`path`、`exports`、`parent`、`filename`、`loaded`、`children`、`paths` 等属性。
+- `__filename`: `/path/to/your/directory/example.js` - 当前模块文件的绝对路径。
+- `__dirname`: `/path/to/your/directory` - 当前模块所在目录的绝对路径。
+
+### log module.wrapper
+```js
+console.log(require('module').wrapper);
+
+// result:
+// '(function (exports, require, module, __filename, __dirname) { ','\n});'
+
+```
+
+### module export and import
+
+#### export1:
+```js
+// class Calculator {
+//     add(a, b) {
+//         return a + b
+//     }
+//     multiply(a, b) {
+//         return a * b
+//     }
+//     divide(a, b) {
+//         return a - b
+//     }
+// }
+// module.exports = Calculator
+
+module.exports = class {
+    add(a, b) {
+        return a + b
+    }
+    multiply(a, b) {
+        return a * b
+    }
+    divide(a, b) {
+        return a - b
+    }
+}
+```
+
+#### import1:
+```js
+const C = require('./test-module-1')
+
+const calc1 = new C()
+
+console.log(calc1.add(1,2))
+```
+
+#### export2:
+```js
+exports.add = (a,b) => a + b;
+exports.multiply = (a, b) => a * b;
+exports.divide = (a, b) => a / b;
+```
+
+#### import2:
+```js
+// const calc2 = require('./test-module-2')
+const { add, multiply, divide } = require('./test-module-2')
+// console.log(calc2.add(1,2))
+console.log(add(1,2))
+```
+
+### caching
+
+#### test-module-3.js
+```js
+console.log('hello from the module')
+
+module.exports = () => console.log('Log this beautiful text')
+```
+
+```js
+// caching
+require('./test-module-3')();
+require('./test-module-3')();
+require('./test-module-3')();
+
+/*
+result:
+hello from the module
+Log this beautiful text
+Log this beautiful text
+Log this beautiful text
+*/
+
+```
