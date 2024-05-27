@@ -7,7 +7,7 @@ date: 2024-05-24T09:44
 ---
 
 
-## [CommonJs Modules] (https://nodejs.org/docs/latest/api/modules.html#modules-commonjs-modules)
+## [CommonJs Modules](https://nodejs.org/docs/latest/api/modules.html#modules-commonjs-modules)
 
 ### resolving loading
 
@@ -35,7 +35,7 @@ const lodash = require('lodash');
 
 require 会缓存已加载的模块。对于同一个模块的多次 require 调用，只会加载一次，并返回相同的模块实例
 
-### [the-module-wrapper] (https://nodejs.org/docs/latest/api/modules.html#the-module-wrapper)
+### [the-module-wrapper](https://nodejs.org/docs/latest/api/modules.html#the-module-wrapper)
 每个模块的代码实际上被包装在一个特殊的函数中。这是 Node.js 模块系统的一部分，它确保每个模块都有自己独立的作用域，以避免全局变量冲突
 
 ```js
