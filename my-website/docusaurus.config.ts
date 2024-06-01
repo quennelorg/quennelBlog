@@ -217,6 +217,10 @@ const config: Config = {
 							label: 'ImageSolving',
 							href: 'https://www.xiaolincoding.com/',
 						},
+						{
+							label: 'Java',
+							href: 'https://pdai.tech/',
+						},
 					],
 				},
 			],
